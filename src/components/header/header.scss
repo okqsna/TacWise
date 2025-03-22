@@ -1,0 +1,53 @@
+@import '././style/mixins.scss';
+@import '././style/variables.scss';
+
+.Header{
+    @include size(1297px, 117px);
+    background-color: $darkgreen;
+    border-radius: 30px;
+    padding: 30px;
+    @include flexBox(flex, row, space-between, center);
+    .header_left{
+        @include size(240px, 76px);
+        @include flexBox(flex, column, center, flex-start);
+        .header_left_logo_txt{
+            @include fontSet($fontFamily_source, 56px, normal, 700, $green)
+        }
+    }
+    .header_right{
+        @include size(315px, 76px);
+        @include flexBox(flex, row, space-between, center);
+        .header_right_links{
+            @include flexBox(flex, row, space-between, center);
+            a{
+                @include fontSet($fontFamily_montserrat, 24px, normal, 600, $white);
+                text-decoration: None;
+                cursor: pointer;
+                transition: 0.5s;
+                &:hover{
+                    transition: 0.2s;
+                    filter: drop-shadow(0px 0px 4px $green);
+                }
+            }
+            }
+            .header_right_links_sign_up{
+                @include size(160px, 57px);
+                margin-left: 45px;
+                background-color: $green;
+                border-radius: 25px;
+                cursor: pointer;
+                filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
+                @include flexBox(flex, column, center, center);
+                .header_right_links_sign_up_txt{
+                    @include fontSet($fontFamily_montserrat, 24px, normal, 600, $white);
+                }
+                transition: 0.3s;
+                &:hover{
+                    transition: 0.3s;
+                    border-radius: 30px;
+                    filter: drop-shadow(0px 0px 4px $green);
+                    
+                }
+            }
+        }
+}
