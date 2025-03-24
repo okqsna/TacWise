@@ -1,0 +1,44 @@
+@import '././style/mixins.scss';
+@import '././style/variables.scss';
+
+.Footer{
+    @include size(100%, 500px);
+    background: url('../../pages/img/gradient_footerpage.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 60px;
+    @include flexBox(flex, row, space-between, flex-start);
+    .Footer_left{
+        @include size(70%, 380px);
+        @include flexBox(flex, column, space-between, flex-start);
+        .Footer_left_top{
+            @include size(70%, 200px);
+            @include flexBox(flex, row, space-between, flex-start);
+            .Footer_left_logo{
+                h4{
+                    @include fontSet($fontFamily_source, 46px, normal, 700, $white);
+                    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+                }
+                p{
+                    @include fontSet($fontFamily_montserrat, 27px, normal, 600, $white);
+                    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.20);
+                }
+            }
+            .Footer_left_info{
+                p{
+                    margin-top: 20px;
+                    @include fontSet($fontFamily_montserrat, 21px, normal, 600, $white);
+                    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.20);
+                    margin-bottom: 20px;
+                }
+                a{
+                    text-decoration: underline;
+                    text-underline-offset: 7px;
+                    cursor: pointer;
+                    @include fontSet($fontFamily_montserrat, 21px, normal, 500, $white);
+                    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.20);
+                }
+            }
+        }
+    }
+}
