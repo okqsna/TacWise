@@ -23,7 +23,7 @@ class LandingPage extends React.Component{
                         <div className="landingPage_startpage_btn_logo"></div>
                     </div>
                 </div>
-                <div className="landingPage_about">
+                <div className="landingPage_about" id="about">
                     <div className="landingPage_about_top">
                         <div className="landingPage_about_top_txt_1">ефективність</div>
                         <div className="landingPage_about_top_txt_2">якість</div>
