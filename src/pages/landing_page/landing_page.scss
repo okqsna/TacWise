@@ -1,0 +1,151 @@
+@import '././style/mixins.scss';
+@import '././style/variables.scss';
+
+.landingPage{
+    @include size(100%, auto);
+    .landingPage_header{
+        margin-top: 26px;
+        @include flexBox(flex, column, center, center)
+    }
+    .landingPage_startpage{
+        @include size(100%, 630px);
+        @include flexBox(flex, column, center, center);
+        .landingPage_startpage_txt{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 50px;
+            cursor: pointer;
+            @include fontSet($fontFamily_montserrat, 60px, normal, 700, $green);
+            text-align: center;
+            line-height: 55px;
+            .landingPage_startpage_txt_top_green{
+                color: $green;
+            }
+            .landingPage_startpage_txt_top_darkgreen{
+                color: $darkgreen;
+                margin-left: 20px;
+            }
+        }
+        .landingPage_startpage_btn{
+            @include size(250px, 65px);
+            @include flexBox(flex, row, center, center);
+            border-radius: 59px;
+            background: url('../img/btn_startpage.png');
+            background-blend-mode: overlay, normal;
+            backdrop-filter: blur(40px);
+            cursor: pointer;
+            .landingPage_startpage_btn_logo{
+                @include size(30px, 30px);
+                background: url('../img/cursor_startpage.svg');
+            }
+            .landingPage_startpage_btn_link{
+                text-decoration: none;
+                @include fontSet($fontFamily_montserrat, 20px, normal, 600, $darkgreen);
+                letter-spacing: 1.6px;
+                margin-right: 10px;
+            }
+        }
+    }
+    .landingPage_about{
+        @include size(100%, 800px);
+        @include flexBox(flex, column, space-around, center);
+        background: url('../img/gradient_aboutpage.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        .landingPage_about_top{
+            @include size(100%, 150px);
+            @include flexBox(flex, row, space-around, center);
+            .landingPage_about_top_txt_1{
+                @include fontSet($fontFamily_montserrat, 36px, normal, 700, $darkgreen);
+                transform: rotate(-5deg);
+                cursor: pointer;
+            }
+            .landingPage_about_top_txt_2{
+                margin-top: 7em;
+                cursor: pointer;
+                @include fontSet($fontFamily_montserrat, 36px, normal, 700, $darkgreen);
+            }
+            .landingPage_about_top_txt_3{
+                cursor: pointer;
+                @include fontSet($fontFamily_montserrat, 36px, normal, 700, $darkgreen);
+                transform: rotate(10deg);
+            }
+        }
+        .landingPage_about_middle{
+            .landingPage_about_middle_txt{
+                @include fontSet($fontFamily_source, 65px, normal, 700, $white);
+                text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+                cursor: pointer;
+            }
+        }
+        .landingPage_about_bottom{
+            @include size(100%, 100px);
+            @include flexBox(flex, row, space-around, center);
+            .landingPage_about_bottom_txt_1{
+                @include fontSet($fontFamily_montserrat, 36px, normal, 700, $darkgreen);
+                transform: rotate(10deg);
+                cursor: pointer;
+            }
+            .landingPage_about_bottom_txt_2{
+                cursor: pointer;
+                @include fontSet($fontFamily_montserrat, 36px, normal, 700, $darkgreen);
+            }
+            .landingPage_about_bottom_txt_3{
+                cursor: pointer;
+                @include fontSet($fontFamily_montserrat, 36px, normal, 700, $darkgreen);
+                transform: rotate(-5deg);
+                text-align: center;
+            }
+        }
+    }
+   .landingPage_joinus{
+        padding: 100px;
+        @include size(100%, 800px);
+        @include flexBox(flex, column, flex-start, center);
+        background: url('../img/background_aboutpage2.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        .landingPage_joinus_caption{
+            text-transform: uppercase;
+            @include fontSet($fontFamily_montserrat, 60px, normal, 700, $green);
+            margin-bottom: 30px;
+        }
+        .landingPage_joinus_reasons{
+            @include size(100%, 400px);
+            @include flexBox(flex, column, space-around, center);
+            .landingPage_joinus_reasons_reason{
+                text-align: center;
+                @include fontSet($fontFamily_montserrat, 30px, normal, 600, $darkgreen);
+                margin-top: 70px;
+
+            }
+        }
+   } 
+   .landingPage_joinuslink{
+        @include size(100%, 400px);
+        background-color: $darkgreen;
+        @include flexBox(flex, column, center, center);
+        .landingPage_joinuslink_txt{
+            @include fontSet($fontFamily_source, 50px, normal, 700, $green);
+            text-align: center;
+            line-height: 50px;
+            margin-bottom: 50px;
+        }
+        .landingPage_joinuslink_btn{
+            padding: 20px;
+            @include size(300px, 70px);
+            @include flexBox(flex, row, space-around, center);
+            background-color: $white;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0px 0px 10px 0px #13CFA2;
+            .landingPage_joinuslink_btn_txt{
+                @include fontSet($fontFamily_montserrat, 22px, normal, 600, $darkgreen);
+            }
+            .landingPage_joinuslink_btn_logo{
+                @include size(30px, 30px);
+                background: url('../img/cursor_joinpage.svg');
+            }
+        }
+   }
+}
