@@ -1,0 +1,147 @@
+@import '././style/mixins.scss';
+@import '././style/variables.scss';
+
+.Header_user{
+    @include size(80%, 110px);
+    background-color: $darkgreen;
+    border-radius: 30px;
+    padding: 30px;
+    scroll-behavior: smooth;
+    @include flexBox(flex, row, space-between, center);
+
+    .header_left {
+        @include size(240px, 76px);
+        @include flexBox(flex, column, center, flex-start);
+
+        .header_left_logo_txt {
+            @include fontSet($fontFamily_source, 56px, normal, 700, $green);
+            cursor: pointer;
+        }
+    }
+
+    .header_right {
+        @include size(315px, 76px);
+        @include flexBox(flex, row, space-between, center);
+
+        .header_right_links {
+            @include flexBox(flex, row, space-between, center);
+            a {
+                @include fontSet($fontFamily_montserrat, 20px, normal, 600, $white);
+                text-decoration: none;
+                cursor: pointer;
+                transition: 0.5s;
+                margin-left: 30px;
+                &:hover {
+                    transition: 0.2s;
+                    filter: drop-shadow(0px 0px 4px $green);
+                }
+            }
+        }
+
+        .header_right_links_sign_up {
+            @include size(160px, 57px);
+            margin-left: 45px;
+            background-color: $green;
+            border-radius: 20px;
+            cursor: pointer;
+            filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
+            @include flexBox(flex, column, center, center);
+            transition: 0.4s;
+
+            .header_right_links_sign_up_txt {
+                @include fontSet($fontFamily_montserrat, 24px, normal, 600, $white);
+            }
+
+            &:hover {
+                transition: 0.3s;
+                border-radius: 30px;
+                filter: drop-shadow(0px 0px 4px $green);
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        @include size(90%, 100px);
+        .header_left {
+            @include size(200px, 60px);
+            .header_left_logo_txt {
+                @include fontSet($fontFamily_source, 36px, normal, 700, $green);
+            }
+        }
+
+        .header_right {
+            @include size(280px, 60px);
+            .header_right_links {
+                a {
+                    @include fontSet($fontFamily_montserrat, 15px, normal, 600, $white);
+                }
+            }
+
+            .header_right_links_sign_up {
+                @include size(140px, 50px);
+                .header_right_links_sign_up_txt {
+                    @include fontSet($fontFamily_montserrat, 15px, normal, 600, $white);
+                }
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        @include flexBox(flex, row, center, center);
+        @include size(90%, 90px);
+        .header_left {
+            @include size(180px, 50px);
+            .header_left_logo_txt {
+                @include fontSet($fontFamily_source, 28px, normal, 700, $green);
+            }
+        }
+        .header_right {
+            @include size(100%, auto);
+            margin-left: 25px;
+            .header_right_links {
+                a {
+                    @include fontSet($fontFamily_montserrat, 10px, normal, 600, $white);
+                }
+            }
+            .header_right_links_sign_up {
+                @include size(120px, 45px);
+                .header_right_links_sign_up_txt {
+                    @include fontSet($fontFamily_montserrat, 16px, normal, 600, $white);
+                }
+            }
+        }
+    }
+    @media (max-width: 400px) {
+        @include flexBox(flex, row, center, center);
+        @include size(90%, 90px);
+        padding: 20px; 
+    
+        .header_left {
+            @include size(115px, auto);
+            .header_left_logo_txt {
+                @include fontSet($fontFamily_source, 25px, normal, 700, $green);
+                white-space: nowrap; 
+            }
+        }
+        .header_right {
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+            .header_right_links {
+                display: flex;
+                a {
+                    @include fontSet($fontFamily_montserrat, 12px, normal, 600, $white);
+                    padding: 3px;
+                    white-space: nowrap;
+                }
+            }
+            .header_right_links_sign_up {
+                @include size(90px, 40px);
+                .header_right_links_sign_up_txt {
+                    @include fontSet($fontFamily_montserrat, 12px, normal, 600, $white);
+                }
+            }
+        }
+    }
+    
+}
