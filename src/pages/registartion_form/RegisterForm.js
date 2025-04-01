@@ -2,7 +2,7 @@ import React from 'react';
 import './App.scss';
 import RegisterForm from './components/RegisterForm';
 
-function App() {
+function RegistrationForm() {
   return (
     <div className="App">
       <header>
@@ -19,4 +19,4 @@ function App() {
   );
 }
 
-export default App;
+export default RegistrationForm;
