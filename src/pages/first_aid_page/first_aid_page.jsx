@@ -1,10 +1,18 @@
-import React from "react";
-import HeaderUser from "../../components/header_user/header_user.jsx";
-import "./first_aid_page.scss";
-import products from "./data.json";
-import Footer from '../../components/footer/footer.jsx';
+import React, { Component } from 'react';
+import HeaderUser from '../../components/header_user/header_user.jsx';
+import Footer  from '../../components/footer/footer.jsx';
+import products from './data.json'
+import './first_aid_page.scss'
+// import { getAidContent } from '../../services/aidServices.js';
 
-class FirstAidPage extends React.Component {
+// to be done
+// const handleGetAid = async () =>{
+//   const aidContent = await getAidContent();
+//   console.log(aidContent);
+// }
+// handleGetAid();
+
+class FirstAidPage extends Component {
   render() {
     return (
       <div className="FirstAidPage">
