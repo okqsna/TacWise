@@ -1,0 +1,101 @@
+@import '././style/mixins.scss';
+@import '././style/variables.scss';
+
+.FirstAidPage{
+    @include size(100%, auto);
+    background-color: $lightyellow;
+    @include flexBox($displayFlex, column, flex-start, center);
+    scroll-behavior: smooth;
+    .FirstAidPage_header{
+        margin-top: 26px;
+        position: sticky;
+        top: 15px;
+        z-index: 1000;
+        @include size(100%, auto);
+        @include flexBox($displayFlex, column, center, center);
+    }
+    .FirstAidPage_cap{
+        user-select: none;
+        margin-top: 30px;
+        @include fontSet($fontFamily_montserrat, 34px, normal, 700, $darkgreen);
+        @include flexBox($displayFlex, row, center, center);
+        span{
+            margin-left: 10px;
+            color: $green;
+        }
+    }
+    .FirstAidPage_content{
+        padding: 0px 70px 70px 70px;
+        @include size(100%, auto);
+        @include flexBox($displayFlex, row, flex-start, center);
+        .FirstAidPage_content_col1{
+            @include size(50%, auto);
+            @include flexBox($displayFlex, column, space-around, center);
+            .FirstAidPage_content_col1_product{
+                margin-top: 100px;
+                @include size(550px, 400px);
+                border-radius: 20px;
+                background-color: $white;
+                padding-right: 140px;
+                box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.25);
+                .FirstAidPage_content_col1_product_img{
+                    max-width: 400px;
+                    transform: rotate(-10deg);
+                }
+                @include flexBox($displayFlex, row, center, center);
+                .FirstAidPage_content_col1_product_right{
+                    @include flexBox($displayFlex, column, flex-end, center);
+                    .FirstAidPage_content_col1_product_caption{
+                        @include size(220px, auto);
+                        text-align: right;
+                        @include fontSet($fontFamily_montserrat, 24px, normal, 700, $green);
+                        text-underline-offset: 5px;
+                        margin-bottom: 20px;
+                    }
+                    .FirstAidPage_content_col1_product_description{
+                        @include size(220px, auto);
+                        line-height: 19px;
+                        text-align: right;
+                        user-select: none;
+                        @include fontSet($fontFamily_source, 16px, normal, 400, $black);
+                    }
+                }
+            }
+        }
+        .FirstAidPage_content_col2{
+            @include size(50%, auto);
+            @include flexBox($displayFlex, column, flex-start, center);
+            .FirstAidPage_content_col2_product{
+                margin-top: 100px;
+                @include size(550px, 400px);
+                border-radius: 20px;
+                background-color: $white;
+                padding-left: 60px;
+                box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.25);
+                .FirstAidPage_content_col2_product_img{
+                    max-width: 300px;
+                    transform: rotate(10deg);
+                }
+                @include flexBox($displayFlex, row, center, center);
+                .FirstAidPage_content_col2_product_left{
+                    @include flexBox($displayFlex, column, flex-end, center);
+                    .FirstAidPage_content_col2_product_caption{
+                        @include size(220px, auto);
+                        text-align: left;
+                        @include fontSet($fontFamily_montserrat, 24px, normal, 700, $green);
+                        text-underline-offset: 5px;
+                        margin-bottom: 20px;
+                    }
+                    .FirstAidPage_content_col2_product_description{
+                        @include size(260px, auto);
+                        line-height: 19px;
+                        margin-left: 40px;
+                        text-align: left;
+                        user-select: none;
+                        @include fontSet($fontFamily_source, 16px, normal, 400, $black);
+                    }
+                }
+            }
+        }
+    }
+}
