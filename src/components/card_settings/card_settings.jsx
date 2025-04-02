@@ -46,3 +46,5 @@ function CardSettings() {
 }
 
 export default CardSettings;
+
+// cringe
