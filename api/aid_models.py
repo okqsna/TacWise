@@ -1,6 +1,7 @@
 """This module contains the functions that interact
 with the first aid data in the database"""
 from flask_bcrypt import Bcrypt
+
 from db import aid_collection
 
 
