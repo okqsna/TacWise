@@ -25,7 +25,7 @@
         }
     }
     .FirstAidPage_message{
-        @include size(100%, 40vh);
+        @include size(100%, 70vh);
         @include flexBox($displayFlex, column, center, center);
         .FirstAidPage_message_txt{
             text-align: center;
