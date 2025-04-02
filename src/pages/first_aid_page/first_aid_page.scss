@@ -24,6 +24,24 @@
             color: $green;
         }
     }
+    .FirstAidPage_message{
+        @include size(100%, 70vh);
+        @include flexBox($displayFlex, column, center, center);
+        .FirstAidPage_message_txt{
+            text-align: center;
+            @include size(550px, auto);
+            @include fontSet($fontFamily_montserrat, 25px, normal, 700, $darkgreen);
+        }
+    }
+    .FirstAidPage_error_message{
+        @include size(100%, 40vh);
+        @include flexBox($displayFlex, column, center, center);
+        .FirstAidPage_error_message_txt{
+            text-align: center;
+            @include size(550px, auto);
+            @include fontSet($fontFamily_montserrat, 25px, normal, 700, $darkgreen);
+        }
+    }
     .FirstAidPage_content{
         padding: 0px 70px 70px 70px;
         @include size(100%, auto);
