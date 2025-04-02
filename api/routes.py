@@ -1,8 +1,9 @@
 """Module for handling authentication routes"""
 from flask import Blueprint, request, jsonify
+from flask_bcrypt import Bcrypt
+
 from user_models import create_user, get_user_by_email
 from aid_models import get_data
-from flask_bcrypt import Bcrypt
 
 auth = Blueprint("auth", __name__)
 aid = Blueprint("aid", __name__)

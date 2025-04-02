@@ -2,6 +2,7 @@
 from datetime import timedelta
 from flask_bcrypt import Bcrypt
 from flask_jwt_extended import create_access_token
+
 from db import users_collection
 
 

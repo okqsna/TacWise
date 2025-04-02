@@ -1,5 +1,6 @@
 """mongoDB connection and collection"""
 from pymongo import MongoClient
+
 from config import MONGO_URL
 
 client = MongoClient(MONGO_URL)
