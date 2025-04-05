@@ -16,7 +16,7 @@ CORS(app) # configure the app with CORS for cross-origin requests
 
 app.register_blueprint(auth, url_prefix="/api/auth") # register the auth blueprint with the app
 
-app.register_blueprint(aid, url_prefix="/api") 
+app.register_blueprint(aid, url_prefix="/api")
 
 if __name__ == "__main__":
     app.run(host='localhost', port=3001) # run the app on localhost:3001

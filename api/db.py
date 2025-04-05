@@ -12,3 +12,5 @@ users_collection = db_users["users"]
 db_additional = client["db-additional"]
 
 aid_collection = db_additional["aid"]
+
+school_collection = db_additional["schools"]
