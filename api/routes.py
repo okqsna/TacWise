@@ -7,6 +7,7 @@ from aid_models import get_data
 
 auth = Blueprint("auth", __name__)
 aid = Blueprint("aid", __name__)
+schools = Blueprint("schools", __name__)
 
 bcrypt = Bcrypt()
 
@@ -32,4 +33,13 @@ def get_aid_content():
     return jsonify({ # return the response
         "message": "Got data successfully",
         "data": data["products"]
+    }), 200
+
+@schools.route("/schools", methods=["GET"])
+def get_schools_content():
+    """Function to get the schools data"""
+    data = get_data()
+    return jsonify({ # return the response
+        "message": "Got data successfully",
+        "data": data["schools"]
     }), 200
