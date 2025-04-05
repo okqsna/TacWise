@@ -1,0 +1,71 @@
+{
+    "schools": [
+      {
+        "id": 1,
+        "name": "Міжнародний Центр тактичної медицини",
+        "url": "https://ictm.org.ua/",
+        "locations": ["Kyiv"]
+      },
+      {
+        "id": 2,
+        "name": "Сертифікована компанія FAST",
+        "url": "https://linktr.ee/fast_ukraine",
+        "locations": ["Kyiv"]
+      },
+      {
+        "id": 3,
+        "name": "Медичний центр ‘Солом’янські котики”",
+        "url": "https://clxb.ee/medcat",
+        "locations": ["Kyiv"]
+      },
+      {
+        "id": 4,
+        "name": "Центр медичних іновацій",
+        "url": "https://www.medtechnopark.com.ua/?gad_source=1&gclid=CjwKCAiAiaC-BhBEEiwAjY99qDlLUmSN3W62srHpQt4OVMNagrqiG_nOFPdYw_wM-HhA7yxR2hmLAhoC4h4QAvD_BwE#rec458612314",
+        "locations": ["Lviv"]
+      },
+      {
+        "id": 5,
+        "name": "Школа самооборони “Воїн”",
+        "url": "https://www.voin.lviv.ua/",
+        "locations": ["Lviv"]
+      },
+      {
+        "id": 6,
+        "name": "First aid courses CAB",
+        "url": "https://firstaidcab.in.ua/",
+        "locations": ["Lviv"]
+      },
+      {
+        "id": 7,
+        "name": "Такмед Харків",
+        "url": "https://www.instagram.com/tacmed_kharkiv/",
+        "locations": ["Kharkiv"]
+      },
+      {
+        "id": 8,
+        "name": "Українська Школа Порятунку",
+        "url": "https://rescuer.org.ua/medical-trainings/tccc-asm/",
+        "locations": ["Kyiv", "Lviv", "Kharkiv", "Dnipro", "Odessa"]
+      },
+      {
+        "id": 9,
+        "name": "Навчальний центр Добровольчий батальйон “Госпітальєри”",
+        "url": "https://hospitallers-courses.webflow.io/",
+        "locations": ["Kyiv", "Lviv"]
+      },
+      {
+        "id": 10,
+        "name": "Pulse",
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLSfnKETa5jhyV4zZOSyFUFmQoiOV9A2e0v4kYO7_KGoTQJZS4w/viewform",
+        "locations": ["Lviv", "Kyiv", "Kharkiv", "Dnipro", "Odessa"]
+      },
+      {
+        "id": 11,
+        "name": "Центр тактичної медицини “Схід”",
+        "url": "https://www.instagram.com/tac_med.ua/",
+        "locations": ["Lviv", "Kyiv", "Kharkiv", "Dnipro", "Odessa"]
+      }
+    ]
+  }
+  
