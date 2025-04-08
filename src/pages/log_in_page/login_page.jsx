@@ -1,0 +1,21 @@
+import React from "react";
+import Header from "../../components/header/header";
+import Footer from "../../components/footer/footer";
+import LoginForm from "../../components/login/login";
+import "../../pages/login_page/login_page.scss";
+
+const LoginPage = () => {
+  return (
+    <div className="login-page">
+      <Header />
+      <main className="content">
+        <LoginForm />
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+export default LoginPage;
+
+// cringe
