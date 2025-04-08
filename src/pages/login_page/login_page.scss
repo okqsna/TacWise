@@ -1,1 +1,12 @@
+@import '././style/mixins.scss';
+@import '././style/variables.scss';
 
+.login-page{
+    @include flexBox(flex, column, center, center);
+    @include size(100%, auto);
+    .login-page-header{
+        @include size(100%, auto);
+        margin-top: 26px;
+        @include flexBox(flex, column, center, center);
+    }
+}

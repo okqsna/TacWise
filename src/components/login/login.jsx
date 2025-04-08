@@ -26,10 +26,8 @@ function Login() {
     <div className="login-container">
       <h1>Увійдіть, і нумо навчатись!</h1>
       <form onChange={handleChange} onSubmit={handleSubmit}>
-        <label>Електронна пошта</label>
-        <input type="email" name='email' id='email'/>
-        <label>Пароль</label>
-        <input type="password" name='password' id='password'/>
+        <input type="email" placeholder='Електронна пошта' name='email' id='email'/>
+        <input type="password" placeholder='Пароль' name='password' id='password'/>
         <a href="/registration">Або створіть акаунт</a>
         <button type='submit'>Увійти</button>
       </form>

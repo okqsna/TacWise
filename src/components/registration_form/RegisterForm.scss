@@ -40,5 +40,6 @@
         @include fontSet($fontFamily_montserrat, 17px, normal, 600, $white);
         background-color: $darkgreen;
         cursor: pointer;
+        border: none;
     }
 }

@@ -7,7 +7,9 @@ import "./login_page.scss";
 const LoginPage = () => {
   return (
     <div className="login-page">
-      <Header />
+      <div className="login-page-header">
+        <Header />
+      </div>
       <main className="content">
         <LoginForm />
       </main>
