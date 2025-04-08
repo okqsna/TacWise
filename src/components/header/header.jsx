@@ -13,7 +13,7 @@ class Header extends React.Component{
                 <div className="header_right">
                     <div className="header_right_links">
                         <a href="#about">Про нас</a>
-                        <div className="header_right_links_sign_up">
+                        <div className="header_right_links_sign_up" href="/login">
                             <p className = "header_right_links_sign_up_txt">Увійти</p>
                         </div>
                     </div>
