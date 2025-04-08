@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
 import LoginForm from "../../components/login/login";
-import "../../pages/login_page/login_page.scss";
+import "./login_page.scss";
 
 const LoginPage = () => {
   return (
