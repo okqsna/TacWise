@@ -1,5 +1,5 @@
 import React from 'react';
-import './RegisterForm.scss';
+import './RegisterPage.scss';
 import RegisterForm from '../../components/registration_form/RegisterForm';
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';

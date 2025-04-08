@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import LandingPage from './pages/landing_page/landing_page'
 import FirstAidPage from "./pages/first_aid_page/first_aid_page";
-import RegistrationForm from "./pages/registartion_form/RegisterForm";
+import RegistrationForm from "./pages/registartion_form/RegisterPage";
 import './main.css'
 
 function Main(){
