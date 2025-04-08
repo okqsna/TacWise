@@ -27,7 +27,6 @@ const loginUser = async (userData) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(userData),
     });
-
     const data = await response.json();
     if (data.token) {
       sessionStorage.setItem("token", data.token);

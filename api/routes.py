@@ -2,7 +2,7 @@
 from flask import Blueprint, request, jsonify
 from flask_bcrypt import Bcrypt
 
-from user_models import create_user, get_user_by_email
+from user_models import create_user, get_user_by_email, login_user
 from aid_models import get_data
 
 auth = Blueprint("auth", __name__)
@@ -19,11 +19,34 @@ def register():
     if get_user_by_email(data["email"]):   # check if the user already exists
         return jsonify({"message": "User already exists"}), 400
 
-    token = create_user(data["username"], data["email"], data["password"]) # create a new user
+    # create a new user
+    result = create_user(data["fname"], data["lname"], data["email"],\
+                        data["about"], data["password"])
+    if "Missing fields" in result or "Password must" in result:
+        return jsonify({"error": result}), 400
+
+    token = result # get the access token
+
     return jsonify({ # return the response
         "message": "User registered successfully",
         "token": token
     }), 201
+
+@auth.route("/login", methods=["POST"])
+def login():
+    """Function to login a user"""
+    data = request.json
+
+    result = login_user(data["email"], data["password"])
+
+    if "User does not exist" in result or "Invalid password" in result:
+        return jsonify({"error": result}), 400
+    # create an access token
+    token = result
+    return jsonify({ # return the response
+        "message": "User logged in successfully",
+        "token": token
+    }), 200
 
 @aid.route("/aid", methods=["GET"])
 def get_aid_content():
