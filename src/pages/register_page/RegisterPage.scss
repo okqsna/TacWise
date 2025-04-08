@@ -1,0 +1,12 @@
+@import '././style/mixins.scss';
+@import '././style/variables.scss';
+
+.RegistrationForm{
+    @include flexBox(flex, column, center, center);
+    @include size(100%, auto);
+    .RegistrationForm_Header{
+        @include size(100%, auto);
+        margin-top: 26px;
+        @include flexBox(flex, column, center, center)
+    }
+}

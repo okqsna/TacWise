@@ -1,45 +1,44 @@
-.register-form {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-    text-align: center;
-  
-    h1 {
-      font-size: 24px;
-      margin-bottom: 20px;
+@import '././style/mixins.scss';
+@import '././style/variables.scss';
+
+
+.register-form{
+    @include flexBox(flex, column, center, center);
+    @include size(100%, auto);
+    min-height: 700px;
+    background-color: $lightyellow;
+    h1{
+        @include fontSet($fontFamily_montserrat, 25px, normal, 700, $darkgreen);
+        margin-bottom: 30px;
     }
-  
-    input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
+    form{
+        @include flexBox(flex, column, center, center);
+        @include size(100%, auto);
+        margin-bottom: 30px;
+        input{
+            @include size(500px, 40px);
+            @include fontSet($fontFamily_source, 17px, normal, 400, $darkgreen);
+            margin-top: 5px;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #ECFDF9;
+            border-radius: 10px;
+            border: 1px solid $green;
+            cursor: pointer;
+        }
+        p{
+            @include fontSet($fontFamily_montserrat, 17px, normal, 600, $darkgreen);
+            a{
+                color: $green;
+                text-decoration: none;
+            }
+        }
     }
-  
-    button {
-      width: 100%;
-      padding: 10px;
-      background-color: #34D399;
-      border: none;
-      border-radius: 4px;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-  
-      &:hover {
-        background-color: darken(#34D399, 10%);
-      }
+    button{
+        @include size(200px, 60px);
+        border-radius: 25px;
+        @include fontSet($fontFamily_montserrat, 17px, normal, 600, $white);
+        background-color: $darkgreen;
+        cursor: pointer;
     }
-  
-    p {
-      margin-top: 20px;
-      font-size: 14px;
-    }
-  
-    a {
-      color: #34D399;
-      text-decoration: none;
-    }
-  }
-  
+}
