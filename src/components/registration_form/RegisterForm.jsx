@@ -69,8 +69,8 @@ const RegisterForm = () => {
           onChange={handleChange}
         />
         <p>Або <a href="/login">увійдіть</a>, якщо вже маєте акаунт.</p>
+        <button type="submit">Доєднатись</button>
       </form>
-      <button type="submit">Доєднатись</button>
     </div>
   );
 };
