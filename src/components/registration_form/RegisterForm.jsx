@@ -1,16 +1,28 @@
 import React, { useState } from 'react';
 import './RegisterForm.scss';
+import { registerUser } from '../../services/userServices.js';
 
 const RegisterForm = () => {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [formData, setFormData] = useState({ // initial state for form data
+        fname: '',
+        lname: '',
+        email: '',
+        about: '',
+        password: ''
+  });
+  
+  const handleChange = (e) => { // function to handle input changes
+    e.preventDefault();
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    // обробка форми
-  };
+        e.preventDefault();
+        registerUser(formData)
+    }
 
   return (
     <div className="register-form">
@@ -18,27 +30,43 @@ const RegisterForm = () => {
       <form onSubmit={handleSubmit}>
         <input 
           type="text" 
-          placeholder="Ім'я користувача" 
-          value={username} 
-          onChange={(e) => setUsername(e.target.value)} 
+          placeholder="Ім'я" 
+          name='fname'
+          value={formData.fname}
+          id='fname'
+          onChange={handleChange}
+        />
+        <input 
+          type="text" 
+          placeholder="Прізвище" 
+          name='lname'
+          value={formData.lname}
+          id='lname'
+          onChange={handleChange}
         />
         <input 
           type="email" 
           placeholder="Електронна пошта" 
-          value={email} 
-          onChange={(e) => setEmail(e.target.value)} 
+          value={formData.email} 
+          name='email'
+          id='email'
+          onChange={handleChange}
+        />
+        <input 
+          type="text" 
+          placeholder="Про вас" 
+          name='about'
+          value={formData.about}
+          id='about'
+          onChange={handleChange}
         />
         <input 
           type="password" 
           placeholder="Пароль" 
-          value={password} 
-          onChange={(e) => setPassword(e.target.value)} 
-        />
-        <input 
-          type="password" 
-          placeholder="Підтвердити пароль" 
-          value={confirmPassword} 
-          onChange={(e) => setConfirmPassword(e.target.value)} 
+          value={formData.password} 
+          name='password'
+          id='password'
+          onChange={handleChange}
         />
         <button type="submit">Доєднатись</button>
       </form>
