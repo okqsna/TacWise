@@ -10,14 +10,15 @@ const registerUser = async (userData) => {
     const data = await response.json();
     if (data.token) {
       sessionStorage.setItem("token", data.token);
+      // sessionStorage.setItem("user", JSON.stringify(data.user)); to be reviewed
       window.location.href = "/"; // redirect to home page
     }
-
     return data;
   } catch (error) {
     console.error("Error:", error);
   }
 };
+
 
 const loginUser = async (userData) => {
   // method for sending data to the server
@@ -30,6 +31,7 @@ const loginUser = async (userData) => {
     const data = await response.json();
     if (data.token) {
       sessionStorage.setItem("token", data.token);
+      // sessionStorage.setItem("user", JSON.stringify(data.user)); to be reviewed
       window.location.href = "/"; // redirect to home page
     }
     return data;
@@ -38,4 +40,4 @@ const loginUser = async (userData) => {
   }
 };
 
-export { registerUser, loginUser };
+export { registerUser, loginUser};
