@@ -1,20 +1,17 @@
 import React from 'react';
 import './RegisterForm.scss';
 import RegisterForm from '../../components/registartion_form/RegisterForm';
+import Header from '../../components/header/header';
+import Footer from '../../components/footer/footer';
 
 function RegistrationForm() {
   return (
     <div className="App">
-      <header>
-        <div className="logo">TacWise</div>
-        <div className="nav-links">
-          <a href="/about">Про нас</a>
-          <a href="/login">Увійти</a>
-        </div>
-      </header>
+      <Header />
       <main>
         <RegisterForm />
       </main>
+      <Footer />
     </div>
   );
 }
