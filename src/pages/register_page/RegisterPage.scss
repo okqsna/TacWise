@@ -4,6 +4,7 @@
 .RegistrationForm{
     @include flexBox(flex, column, center, center);
     @include size(100%, auto);
+    background-color: $lightyellow;
     .RegistrationForm_Header{
         @include size(100%, auto);
         margin-top: 26px;
