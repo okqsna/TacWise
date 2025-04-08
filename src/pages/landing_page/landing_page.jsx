@@ -19,7 +19,7 @@ class LandingPage extends React.Component{
                         <span className="landingPage_startpage_txt_top_green">легко та цікаво!</span>
                     </div>
                     <div className="landingPage_startpage_btn">
-                        <a className="landingPage_startpage_btn_link">Доєднатись</a>
+                        <a className="landingPage_startpage_btn_link" href="/registration">Доєднатись</a>
                         <div className="landingPage_startpage_btn_logo"></div>
                     </div>
                 </div>
