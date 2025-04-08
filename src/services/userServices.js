@@ -8,6 +8,16 @@ const registerUser = async (userData) => {
     }); 
 
     const data = await response.json();
+    if (data.token) {
+      sessionStorage.setItem("token", data.token);
+      window.location.href = "/"; // redirect to home page
+    }
+
+    return data;
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
     return data;
   } catch (error) {
     console.error("Error:", error);
