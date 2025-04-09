@@ -1,5 +1,6 @@
-@import '../mixins.scss';
-@import '../variables.scss';
+@import '././style/mixins.scss';
+@import '././style/variables.scss';
+
 
 .test-cards-page {
   @include flexBox(flex, column, center, center);
@@ -83,18 +84,18 @@
           cursor: pointer;
 
           &.true-btn {
-            background-color: $primarygreen;
+            background-color: $darkgreen;
 
             &:hover {
-              background-color: darken($primarygreen, 5%);
+              background-color: darken($darkgreen, 5%);
             }
           }
 
           &.false-btn {
-            background-color: $errorred;
+            background-color: $black;
 
             &:hover {
-              background-color: darken($errorred, 5%);
+              background-color: darken($black, 5%);
             }
           }
         }
