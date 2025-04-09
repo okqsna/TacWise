@@ -1,0 +1,19 @@
+@import '././style/mixins.scss';
+@import '././style/variables.scss';
+
+.test-card-tf-page {
+  @include flexBox(flex, column, center, center);
+  @include size(100%, auto);
+  background-color: $lightgreen;
+
+  .test-card-tf-page-header {
+    @include size(100%, auto);
+    margin-top: 30px;
+    @include flexBox(flex, column, center, center);
+  }
+
+  .content {
+    @include size(100%, auto);
+    padding: 30px;
+  }
+}
