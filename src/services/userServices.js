@@ -40,4 +40,19 @@ const loginUser = async (userData) => {
   }
 };
 
-export { registerUser, loginUser};
+const getUserData = async (token) => {
+  // method for getting data to the server
+  try {
+    const response = await fetch(`http://localhost:3001/api/user?token=${token}`, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" }
+    });
+    const data = await response.json();
+    console.log(data)
+    return data;
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
+
+export { registerUser, loginUser, getUserData};
