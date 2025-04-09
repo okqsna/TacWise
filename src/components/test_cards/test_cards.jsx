@@ -1,38 +1,53 @@
-import React, { useState } from "react";
+import React from "react";
+import "./test_cards.scss";
 
-const ModulePage = ({ question, answers, correctAnswerIndex }) => {
-  const [selectedIndex, setSelectedIndex] = useState(null);
-
-  const handleAnswerClick = (index) => {
-    setSelectedIndex(index);
+const TestCardsPage = () => {
+  const question = {
+    title: "Питання 1",
+    text: "Яка столиця України?",
+    answers: [
+      { id: 1, text: "Київ", isCorrect: true },
+      { id: 2, text: "Львів", isCorrect: false },
+      { id: 3, text: "Одеса", isCorrect: false },
+      { id: 4, text: "Харків", isCorrect: false },
+    ],
   };
 
-  const getClassName = (index) => {
-    if (selectedIndex === null) return "answer-option";
-    if (index === correctAnswerIndex) return "answer-option correct";
-    if (index === selectedIndex) return "answer-option incorrect";
-    return "answer-option";
+  const [selectedAnswerId, setSelectedAnswerId] = React.useState(null);
+
+  const handleAnswerClick = (answerId) => {
+    setSelectedAnswerId(answerId);
   };
 
   return (
-    <div className="module-page">
-      <div className="module-container">
-        <h2 className="module-title">Модуль запитання</h2>
+    <div className="test-cards-page">
+      <div className="test-cards-container">
+        <div className="test-cards-title">Тестові завдання</div>
 
         <div className="question-box">
-          <div className="question-title">Запитання:</div>
-          <div className="question-text">{question}</div>
+          <div className="question-title">{question.title}</div>
+          <div className="question-text">{question.text}</div>
 
           <div className="answers">
-            {answers.map((answer, index) => (
-              <div
-                key={index}
-                className={getClassName(index)}
-                onClick={() => handleAnswerClick(index)}
-              >
-                {answer}
-              </div>
-            ))}
+            {question.answers.map((answer) => {
+              const isSelected = selectedAnswerId === answer.id;
+              const isCorrect = answer.isCorrect;
+              const answerClass = isSelected
+                ? isCorrect
+                  ? "answer-option correct"
+                  : "answer-option incorrect"
+                : "answer-option";
+
+              return (
+                <div
+                  key={answer.id}
+                  className={answerClass}
+                  onClick={() => handleAnswerClick(answer.id)}
+                >
+                  {answer.text}
+                </div>
+              );
+            })}
           </div>
         </div>
 
@@ -44,4 +59,4 @@ const ModulePage = ({ question, answers, correctAnswerIndex }) => {
   );
 };
 
-export default ModulePage;
+export default TestCardsPage;

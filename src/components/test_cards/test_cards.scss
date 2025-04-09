@@ -1,93 +1,91 @@
 @import './style/mixins.scss';
 @import './style/variables.scss';
 
-.module-page {
-    @include flexBox(flex, column, center, center);
-    @include size(100%, auto);
-    background-color: $lightyellow;
-    padding: 40px 20px;
 
-    .module-container {
-        @include size(100%, auto);
-        max-width: 900px;
-        background-color: white;
-        border-radius: 16px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        padding: 32px;
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-    }
+.test-cards-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $lightyellow;
+  padding: 40px 20px;
+}
 
-    .module-title {
-        font-size: 28px;
-        font-weight: bold;
-        color: $primarygreen;
-        text-align: left;
-    }
+.test-cards-container {
+  width: 100%;
+  max-width: 900px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
 
-    .question-box {
-        border: 2px solid $lightgray;
-        border-radius: 12px;
-        padding: 24px;
-        background-color: $lightcream;
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
+.test-cards-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: $darkgreen;
+  text-align: left;
+}
 
-        .question-title {
-            font-size: 20px;
-            font-weight: 600;
-            color: $darkgreen;
-        }
+.question-box {
+  border: 2px solid $lightyellow;
+  border-radius: 12px;
+  padding: 24px;
+  background-color: $lightyellow;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 
-        .question-text {
-            font-size: 18px;
-            font-weight: 400;
-            color: $black;
-        }
+  .question-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: $darkgreen;
+  }
 
-        .answers {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
+  .question-text {
+    font-size: 18px;
+    font-weight: 400;
+    color: $black;
+  }
 
-            .answer-option {
-                background-color: $darkgreen;
-                color: white;
-                padding: 16px;
-                border-radius: 12px;
-                text-align: center;
-                transition: all 0.3s ease;
+  .answers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
 
-                &:hover {
-                    background-color: $primarygreen;
-                    cursor: pointer;
-                }
+    .answer-option {
+      background-color: $darkgreen;
+      color: white;
+      padding: 16px;
+      border-radius: 12px;
+      text-align: center;
+      transition: all 0.3s ease;
 
-                &.correct {
-                    background-color: $correctgreen;
-                }
-
-                &.incorrect {
-                    background-color: $errorred;
-                }
-            }
-
-            .highlighted {
-                background-color: $primarygreen;
-            }
-        }
-    }
-
-    .back-button {
-        font-weight: bold;
-        color: $darkgreen;
-        margin-top: 20px;
+      &:hover {
+        background-color: $darkgreen;
         cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-style: italic;
+      }
+
+      &.correct {
+        background-color: $darkgreen;
+      }
+
+      &.incorrect {
+        background-color: $black;
+      }
     }
+  }
+}
+
+.back-button {
+  font-weight: bold;
+  color: $darkgreen;
+  margin-top: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-style: italic;
 }
