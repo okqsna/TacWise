@@ -3,7 +3,7 @@
 
 .ModuleCard{
     @include flexBox(flex, row, space-between, flex-start);
-    @include size(850px, 270px);
+    @include size(730px, 270px);
     border-radius: 20px;
     background-color: $lightyellow;
     border: 2px solid $darkgreen;
@@ -17,8 +17,8 @@
             margin-bottom: 16px;
         }
         p{
-            width: 420px;
-            @include fontSet($fontFamily_montserrat, 15px, normal, 500, $black);
+            width: 360px;
+            @include fontSet($fontFamily_montserrat, 14px, normal, 500, $black);
 
         }
     }
@@ -42,13 +42,12 @@
             margin-bottom: 20px;
         }
         .ModuleCard_progress_visuals{
-            @include size(130px, 130px);
+            @include size(100px, 100px);
             @include flexBox(flex, column, center, center);
-            background: url('../../pages/img/progress-module-dark.png') no-repeat;
+            border-radius: 100px;
+            border: 7px dotted $darkgreen;
             .ModuleCard_progress_visuals_p{
                 @include fontSet($fontFamily_source, 30px, normal, 800, $green);
-                margin-bottom: 20px;
-                margin-right: 20px;
             }
         }
     }
