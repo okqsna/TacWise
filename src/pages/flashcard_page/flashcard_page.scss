@@ -1,3 +1,13 @@
 @import '././style/mixins.scss';
 @import '././style/variables.scss';
 
+.FlashcardPage {
+    @include size(100%, auto);
+    background-color: $lightyellow;
+    @include flexBox(flex, column, flex-start, flex-start); 
+    .FlashcardPage_header{
+        @include size(100%, auto);
+        margin-top: 26px;
+        @include flexBox(flex, column, center, center);
+    }
+}

@@ -2,7 +2,7 @@ import React from "react";
 import "./flashcard_page.scss";
 import Header from '../../components/header_user/header_user.jsx';
 import Footer from '../../components/footer/footer.jsx';
-
+import FlashcardSettings from "../../components/flashcard_settings/flashcard_settings.jsx";
 
 const FlashcardPage = () => {
   return (
@@ -11,7 +11,7 @@ const FlashcardPage = () => {
             <Header/>
         </div>
         <div className="FlashcardPage_main">
-            this is main
+            <FlashcardSettings/>
         </div>
         <Footer/>
     </div>

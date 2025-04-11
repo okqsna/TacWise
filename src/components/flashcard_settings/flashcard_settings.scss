@@ -1,0 +1,83 @@
+@import '././style/mixins.scss';
+@import '././style/variables.scss';
+
+.FlashcardSettings{
+    @include size(100%, 300px);
+    background-color: $lightyellow;
+    padding: 40px 22vh;
+    @include flexBox(flex, column, flex-start, flex-start); 
+    .FlashcardSettings_cap{
+        @include fontSet($fontFamily_montserrat, 30px, normal, 700, $green);
+        margin-bottom: 26px;
+    }
+    main{
+    
+        @include flexBox(flex, column, flex-start, flex-start); 
+        .FlashcardSettings_row1{
+            @include size(100%, auto);
+            @include flexBox(flex, row, space-around, flex-start);
+            .FlashcardSettings_row1_quantity{
+                @include size(300px, 70px);
+                border: 2px solid $darkgreen;
+                border-radius: 25px;
+                @include fontSet($fontFamily_montserrat, 17px, normal, 600, $darkgreen);      
+                padding: 10px;
+                cursor: pointer;
+                @include flexBox(flex, row, space-around, center);
+                .FlashcardSettings_row1_quantity_img{
+                    @include size(50px, 50px);
+                    margin-top: 20px;
+                    background: url('../../pages/img/arrow_settings.png') no-repeat;
+                }
+                .FlashcardSettings_row1_quantity_input{
+                    @include size(40px, 40px);
+                    border-radius:5px;
+                    border: none;
+                    margin-left: 10px;        
+                    @include fontSet($fontFamily_montserrat, 20px, normal, 700, $green);      
+                    background-color: transparent;
+                }
+            }
+            .FlashcardSettings_row1_terms{
+                @include size(300px, 70px);
+                border: 2px solid $darkgreen;
+                border-radius: 25px;
+                margin-left: 40px;
+                @include flexBox(flex, row, space-around, center);
+                .FlashcardSettings_row1_terms_txt{
+                    cursor: pointer;
+                    @include flexBox(flex, column, space-around, center);
+                    .FlashcardSettings_row1_terms_txt_p{
+                        text-align: left;    
+                        @include fontSet($fontFamily_montserrat, 17px, normal, 600, $black);  
+                        span{
+                            @include fontSet($fontFamily_montserrat, 17px, normal, 700, $green);  
+                        }    
+                    }
+                }
+            }
+        }
+        .FlashcardSettings_row2{
+            @include size(100%, auto);
+            margin-top: 20px;
+            @include flexBox(flex, row, space-between, flex-start);
+            .FlashcardSettings_row2_studymode{
+                @include size(300px, 70px);
+                border: 2px solid $darkgreen;
+                border-radius: 25px;
+                @include flexBox(flex, row, space-around, center);
+                @include fontSet($fontFamily_montserrat, 17px, normal, 600, $black);  
+
+            }
+            button{
+                text-decoration: none;
+                @include size(150px, 70px);
+                border: none;
+                border-radius: 25px;
+                cursor: pointer;
+                @include fontSet($fontFamily_montserrat, 17px, normal, 600, $white);  
+                background-color: $darkgreen;
+            }
+        }
+    }
+}

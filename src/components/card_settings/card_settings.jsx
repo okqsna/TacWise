@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './CardSettings.scss';
+import './card_settings.scss';
 
 function CardSettings() {
   const [numCards, setNumCards] = useState(10);
