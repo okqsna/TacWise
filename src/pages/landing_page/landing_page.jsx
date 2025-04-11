@@ -64,7 +64,7 @@ class LandingPage extends React.Component{
                     навчатись?
                     </p>
                     <div className="landingPage_joinuslink_btn">
-                        <a className="landingPage_joinuslink_btn_txt">
+                        <a className="landingPage_joinuslink_btn_txt" href="/registration">
                             Вривайся до нас
                         </a>
                         <div className="landingPage_joinuslink_btn_logo"></div>

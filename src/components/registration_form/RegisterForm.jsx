@@ -68,9 +68,9 @@ const RegisterForm = () => {
           id='password'
           onChange={handleChange}
         />
+        <p>Або <a href="/login">увійдіть</a>, якщо вже маєте акаунт.</p>
         <button type="submit">Доєднатись</button>
       </form>
-      <p>Або <a href="/login">увійдіть</a>, якщо вже маєте акаунт.</p>
     </div>
   );
 };

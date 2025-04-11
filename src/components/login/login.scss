@@ -1,47 +1,54 @@
-.login-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50px;
-    h1 {
-      margin-bottom: 20px;
-      font-weight: 600;
+@import '././style/mixins.scss';
+@import '././style/variables.scss';
+
+
+.login-container{
+    @include flexBox(flex, column, center, center);
+    @include size(100%, auto);
+    min-height: 620px;
+    background-color: $lightyellow;
+    h1{
+        @include fontSet($fontFamily_montserrat, 25px, normal, 700, $darkgreen);
+        margin-bottom: 30px;
     }
-    form {
-      display: flex;
-      flex-direction: column;
-      width: 300px;
-      label {
-        margin: 10px 0 5px 0;
-        font-weight: 500;
-      }
-      input {
-        padding: 10px;
-        margin-bottom: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        &:focus {
-          outline: none;
-          border-color: #28a745;
+    form{
+        @include flexBox(flex, column, center, center);
+        @include size(100%, auto);
+        margin-bottom: 30px;
+        label{
+            @include fontSet($fontFamily_montserrat, 17px, normal, 600, $darkgreen);
         }
-      }
-      a {
-        text-align: right;
-        margin-bottom: 20px;
-        text-decoration: none;
-        color: #28a745;
-      }
-      button {
-        padding: 10px;
-        background-color: #28a745;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
+        input{
+            @include size(500px, 40px);
+            @include fontSet($fontFamily_source, 17px, normal, 400, $darkgreen);
+            margin-top: 5px;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #ECFDF9;
+            border-radius: 10px;
+            border: 1px solid $green;
+            cursor: pointer;
+        }
+        a{
+            margin-top: 10px;
+            margin-bottom: 20px;
+            @include fontSet($fontFamily_montserrat, 17px, normal, 600, $green);
+            text-decoration: none;
+            transition: 0.2s;
+            cursor: pointer;
+            &:hover{
+                text-decoration: underline;
+                text-underline-offset: 10px;
+                transition: 0.2s;
+            }
+        }
+    }
+    button{
+        @include size(200px, 60px);
+        border-radius: 25px;
+        @include fontSet($fontFamily_montserrat, 17px, normal, 600, $white);
+        background-color: $darkgreen;
         cursor: pointer;
-        &:hover {
-          background-color: #218838;
-        }
-      }
+        border: none;
     }
-  }
-// cringe
+}

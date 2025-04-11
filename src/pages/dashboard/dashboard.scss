@@ -1,0 +1,157 @@
+@import '././style/mixins.scss';
+@import '././style/variables.scss';
+
+.Dashboard{
+    @include size(100%, auto);
+    background-color: $lightyellow;
+    @include flexBox(flex, column, center, center);
+    .Dashboard_header{
+        @include size(100%, auto);
+        @include flexBox(flex, column, center, center);
+        margin-top: 20px;
+        margin-bottom: 50px;
+    }
+    .Dashboard_content{
+        @include size(100%, auto);
+        min-height: 700px;
+        @include flexBox(flex, row, center, space-around);
+        .Dashboard_content_left{
+            min-height: 700px;
+            padding-left: 21vh;
+            @include size(65%, auto);
+            @include flexBox(flex, column, flex-start, flex-start);
+            .Dashboard_content_left_top{
+                @include size(65%, auto);
+                @include flexBox(flex, column, center, flex-start);
+                .Dashboard_content_left_top_congrats{
+                    @include flexBox(flex, row, center, flex-start);
+                    margin-bottom: 20px;
+                    p{
+                        @include fontSet($fontFamily_montserrat, 30px, normal, 700, $darkgreen);
+                    }
+                    span{
+                        @include fontSet($fontFamily_montserrat, 30px, normal, 700, $darkgreen);
+                        margin-left: 10px;
+                        margin-right: 10px;
+                    }
+                }
+                .Dashboard_content_left_top_modules{
+                    @include flexBox(flex, row, flex-start, space-between);
+                    .Dashboard_content_left_top_modules_logo{
+                        @include size(330px, 120px);
+                        @include flexBox(flex, row, flex-start, space-between);
+                        .Dashboard_content_left_top_modules_logo_img{
+                            @include size(59px, 59px);
+                            background: url('../img/books.png') transparent 50% / cover no-repeat;
+                        }
+                        .Dashboard_content_left_top_modules_logo_txt{
+                            margin-top: 15px;
+                            margin-left: 20px;
+                            @include fontSet($fontFamily_montserrat, 27px, normal, 700, $darkgreen);
+                        }
+                    }
+                    .Dashboard_content_left_top_modules_navigation{
+                        @include flexBox(flex, row, center, space-between);
+                        .Dashboard_content_left_top_modules_btn_1{
+                            margin-right: 25px;
+                            @include size(100px, 54px);
+                            background-color: $green;
+                            user-select: none;
+                            border-radius: 22px;
+                            @include fontSet($fontFamily_montserrat, 13px, normal, 500, $white);
+                            @include flexBox(flex, column, center, center);
+
+                        }
+                        .Dashboard_content_left_top_modules_btn_2{
+                            margin-right: 25px;
+                            @include size(100px, 54px);
+                            background-color: $darkgreen;
+                            border-radius: 22px;
+                            user-select: none;
+                            @include fontSet($fontFamily_montserrat, 13px, normal, 500, $white);
+                            @include flexBox(flex, column, center, center);
+                        }
+                        .Dashboard_content_left_top_modules_btn_3{
+                            @include size(100px, 54px);
+                            background-color: $green;
+                            border-radius: 22px;
+                            user-select: none;
+                            @include fontSet($fontFamily_montserrat, 13px, normal, 500, $white);
+                            @include flexBox(flex, column, center, center);
+                        }
+                    }
+                }
+            }
+            .Dashboard_content_left_main{
+                @include flexBox(flex, column, flex-start, flex-start);
+            }
+        }
+        .Dashboard_content_right{
+            min-height: 800px;
+            @include size(35%, auto);
+            .Dashboard_content_right_widget{
+                @include size(365px, 685px);
+                cursor: pointer;
+                @include flexBox(flex, column, space-around, flex-start);
+                background-color: $darkgreen;
+                border-radius: 20px;
+                padding: 0px 40px;
+                box-shadow: 0px 0px 50px 8px rgba(0, 0, 0, 0.25);
+                .user_data_widget{
+                    @include flexBox(flex, column, space-around, flex-start);
+                    .user_data_widget_name{
+                        @include fontSet($fontFamily_montserrat, 35px, normal, 700, $white);
+                        margin-bottom: 20px;
+                        text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+                    }
+                    .user_data_widget_about{
+                        @include fontSet($fontFamily_montserrat, 17px, normal, 600, $white);
+                        text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+                    }
+                }
+                .stats_widgets{
+                    @include flexBox(flex, column, space-around, flex-start);
+                    .stats_widget_days{
+                        @include size(275px, 170px);
+                        background-color: $lightyellow;
+                        border-radius: 20px;
+                        padding: 20px;
+                        @include flexBox(flex, column, space-around, flex-start);
+                        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+                        @include fontSet($fontFamily_montserrat, 17px, normal, 600, $darkgreen);
+                        .stats_widget_days_data{
+                            @include flexBox(flex, row, space-around, center);
+                            @include fontSet($fontFamily_source, 45px, normal, 800, $green);
+                            .stats_widget_days_data_img{
+                                margin-right: 20px;
+                                @include size(39px, 43px);
+                                background: url('../img/flame.png');
+                            }
+                        }
+
+                    }
+                    .stats_widget_modules{
+                        margin-top: 40px;
+                        @include size(275px, 170px);
+                        @include flexBox(flex, column, space-around, flex-start);
+                        background-color: $lightyellow;
+                        border-radius: 20px;
+                        padding: 20px;
+                        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+                        @include fontSet($fontFamily_montserrat, 17px, normal, 600, $darkgreen);
+                        .stats_widget_modules_data{
+                            @include flexBox(flex, row, space-around, center);
+                            @include fontSet($fontFamily_source, 45px, normal, 800, $green);
+                            .stats_widget_modules_data_img{
+                                margin-right: 20px;
+                                @include size(57px, 58px);
+                                background: url('../img/progress.png');
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

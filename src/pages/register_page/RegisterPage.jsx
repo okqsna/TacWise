@@ -6,8 +6,10 @@ import Footer from '../../components/footer/footer';
 
 function RegistrationForm() {
   return (
-    <div className="App">
-      <Header />
+    <div className="RegistrationForm">
+      <div className="RegistrationForm_Header">
+        <Header />
+      </div>
       <main>
         <RegisterForm />
       </main>
