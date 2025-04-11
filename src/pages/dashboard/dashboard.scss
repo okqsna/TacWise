@@ -3,12 +3,13 @@
 
 .Dashboard{
     @include size(100%, auto);
+    background-color: $lightyellow;
     @include flexBox(flex, column, center, center);
     .Dashboard_header{
         @include size(100%, auto);
         @include flexBox(flex, column, center, center);
         margin-top: 20px;
-        margin-bottom: 30px;
+        margin-bottom: 50px;
     }
     .Dashboard_content{
         @include size(100%, auto);
@@ -16,8 +17,9 @@
         @include flexBox(flex, row, center, space-around);
         .Dashboard_content_left{
             min-height: 700px;
+            padding-left: 21vh;
             @include size(65%, auto);
-            @include flexBox(flex, column, flex-start, center);
+            @include flexBox(flex, column, flex-start, flex-start);
             .Dashboard_content_left_top{
                 @include size(65%, auto);
                 @include flexBox(flex, column, center, flex-start);
@@ -79,6 +81,9 @@
                         }
                     }
                 }
+            }
+            .Dashboard_content_left_main{
+                @include flexBox(flex, column, flex-start, flex-start);
             }
         }
         .Dashboard_content_right{
