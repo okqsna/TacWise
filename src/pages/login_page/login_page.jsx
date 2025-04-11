@@ -19,5 +19,3 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
-
-// cringe
