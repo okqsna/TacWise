@@ -6,6 +6,7 @@ import RegisterPage from './pages/register_page/RegisterPage.jsx';
 import LoginPage from "./pages/login_page/login_page.jsx";
 import DashboardPage from './pages/dashboard/dashboard.jsx';
 import ModuleCard from "./components/module_card/module_card.jsx";
+import ModulePage from './pages/module_page/module_page.jsx';
 
 function Main(){
     return (
@@ -14,8 +15,9 @@ function Main(){
         <Route path="/firstaidkit" element={<FirstAidPage/>} />
         <Route path="/registration" element={<RegisterPage/>} />
         <Route path="/login" element={<LoginPage />} />
-        {/* temporary route - DEVELOPMENT ONLY */}
+        {/* temporary routes - DEVELOPMENT ONLY */}
         <Route path="/moduledev" element={<ModuleCard/>} />
+        <Route path="/module" element={<ModulePage/>}/>
       </Routes>
     );
 }
