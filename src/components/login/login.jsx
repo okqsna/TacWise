@@ -8,6 +8,7 @@ function Login() {
          email: '',
          password: ''
      });
+  
  
      const handleChange = (e) => { // function to handle input changes
        e.preventDefault();
@@ -36,4 +37,3 @@ function Login() {
 }
 export default Login;
 
-// cringe
