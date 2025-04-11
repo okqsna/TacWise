@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import HeaderUser from '../../components/header_user/header_user.jsx';
 import Footer from '../../components/footer/footer.jsx';
-
+import ModuleCard from '../../components/module_card/module_card.jsx';
 import './dashboard.scss';
 
 const Dashboard = () =>{
@@ -12,6 +12,7 @@ const Dashboard = () =>{
             </div>
             <div className="Dashboard_content">
                 <div className="Dashboard_content_left">
+                    {/* navigation and modules  */}
                     <div className="Dashboard_content_left_top">
                         <div className="Dashboard_content_left_top_congrats">
                                 <p>Вітаємо, </p>
@@ -29,7 +30,14 @@ const Dashboard = () =>{
                             </div>
                         </div>
                     </div>
+                    
+                    {/* modules available */}
+                    <div className="Dashboard_content_left_main">
+                        {/* temporary (waiting for database to be connected) */}
+                        <ModuleCard/>
+                    </div>
                 </div>
+                {/* user widget, data (streaks etc) */}
                 <div className="Dashboard_content_right">
                     <div className="Dashboard_content_right_widget">
                         <div className="user_data_widget">
@@ -60,8 +68,8 @@ const Dashboard = () =>{
                         </div>
                     </div>
                 </div>
-            
             </div>
+            {/* footer */}
             <Footer/>
         </div>
     )
