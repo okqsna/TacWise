@@ -1,0 +1,54 @@
+@import '././style/mixins.scss';
+@import '././style/variables.scss';
+
+.ModuleCard{
+    @include flexBox(flex, row, space-between, flex-start);
+    @include size(730px, 270px);
+    border-radius: 20px;
+    background-color: $lightyellow;
+    border: 2px solid $darkgreen;
+    padding: 45px 30px;
+    box-shadow: 0px 0px 20px 6px rgba(0, 0, 0, 0.25);
+    .ModuleCard_txt{
+        @include flexBox(flex, column, space-around, flex-start);
+        user-select: none;
+        h3{
+            @include fontSet($fontFamily_source, 36px, normal, 700, $green);
+            margin-bottom: 16px;
+        }
+        p{
+            width: 360px;
+            @include fontSet($fontFamily_montserrat, 14px, normal, 500, $black);
+
+        }
+    }
+    .ModuleCard_tags{
+        @include size(auto, 270px);
+        cursor: pointer;
+        @include flexBox(flex, column, space-around, flex-end);
+        .ModuleCard_tag{
+            padding: 10px 15px;
+            border-radius: 20px;
+            background-color: $darkgreen;
+            @include fontSet($fontFamily_montserrat, 15px, normal, 500, $white);
+        }
+    }
+    .ModuleCard_progress{
+        @include flexBox(flex, column, space-around, flex-start);
+        .ModuleCard_progress_cap{
+            @include fontSet($fontFamily_montserrat, 17px, normal, 600, $black);
+            text-align: center;
+            margin-left: 10px;
+            margin-bottom: 20px;
+        }
+        .ModuleCard_progress_visuals{
+            @include size(100px, 100px);
+            @include flexBox(flex, column, center, center);
+            border-radius: 100px;
+            border: 7px dotted $darkgreen;
+            .ModuleCard_progress_visuals_p{
+                @include fontSet($fontFamily_source, 30px, normal, 800, $green);
+            }
+        }
+    }
+}
