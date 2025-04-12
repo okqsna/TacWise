@@ -55,3 +55,9 @@ def login_user(email, password):
     access_token = create_access_token(identity=email, expires_delta=timedelta(days=7))
 
     return access_token
+
+def get_user_by_token(token):
+    """
+    Function to get user by their token
+    """
+    return users_collection.find_one({"token": token})

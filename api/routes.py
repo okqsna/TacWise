@@ -2,11 +2,12 @@
 from flask import Blueprint, request, jsonify
 from flask_bcrypt import Bcrypt
 
-from user_models import create_user, get_user_by_email, login_user
+from user_models import create_user, get_user_by_email, login_user, get_user_by_token
 from aid_models import get_data
 
 auth = Blueprint("auth", __name__)
 aid = Blueprint("aid", __name__)
+logged = Blueprint("logged", __name__)
 
 bcrypt = Bcrypt()
 
@@ -55,4 +56,19 @@ def get_aid_content():
     return jsonify({ # return the response
         "message": "Got data successfully",
         "data": data["products"]
+    }), 200
+
+@logged.route("/user", methods=["GET"])
+def get_user():
+    """Function to get the first aid data"""
+    token = request.args.get('token') # get the token from the request
+    if not token: # check if the token is present
+        return jsonify({"error": "Token not provided"}), 400
+    data = get_user_by_token(token) # get the user by token
+    if not data: # check if the user exists
+        return jsonify({"error": "User does not exist"}), 400
+    data["_id"] = str(data["_id"]) # convert the ObjectId to string
+    return jsonify({ # return the response
+        "message": "Got data successfully",
+        "data": data
     }), 200
