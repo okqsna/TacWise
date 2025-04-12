@@ -11,6 +11,24 @@
         margin-top: 20px;
         margin-bottom: 50px;
     }
+    .Dashboard_message{
+        min-height: 600px;
+        @include size(100%, auto);
+        background-color: $lightyellow;
+        @include flexBox(flex, column, center, center);
+        .Dashboard_message_txt{
+            @include fontSet($fontFamily_montserrat, 30px, normal, 700, $green);
+        }
+    }
+    .Dashboard_error_message{
+        min-height: 600px;
+        @include size(100%, auto);
+        background-color: $lightyellow;
+        @include flexBox(flex, column, center, center);
+        .Dashboard_error_message_txt{
+            @include fontSet($fontFamily_montserrat, 30px, normal, 700, $green);
+        }
+    }
     .Dashboard_content{
         @include size(100%, auto);
         min-height: 700px;

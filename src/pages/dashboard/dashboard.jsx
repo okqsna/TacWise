@@ -35,14 +35,14 @@ const Dashboard = () => {
                 <HeaderUser/>
             </div>
             {loading &&
-            <div className="FirstAidPage_message">
-                <p className="FirstAidPage_message_txt">
+            <div className="Dashboard_message">
+                <p className="Dashboard_message_txt">
                 Завантажуємо інформацію...
                 </p>
             </div>}
             {error &&
-            <div className="FirstAidPage_error_message">
-                <p className="FirstAidPage_error_message_txt">
+            <div className="Dashboard_error_message">
+                <p className="Dashboard_error_message_txt">
                 Щось пішло не так... Люди у фіолетових футболках вже виправляють цю проблему!
                 </p>
                 </div>}
