@@ -1,0 +1,48 @@
+@import '././style/mixins.scss';
+@import '././style/variables.scss';
+
+.Flashcard{
+    @include size(800px, 550px);
+    background-color: $darkgreen;
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0px 0px 50px 8px rgba(0, 0, 0, 0.25);
+    @include flexBox(flex, column, center, center);
+    .Flashcard_card{
+        cursor: pointer;
+        @include size(600px, 400px);
+        margin-bottom: 40px;
+        background-color: $white;
+        border-radius: 20px;
+        border: 3px solid $green;
+        box-shadow: 0px 0px 50px 8px rgba(0, 0, 0, 0.25);
+        padding: 20px;
+        @include flexBox(flex, column, center, center);
+        .Flashcard_card_content{
+            .Flashcard_card_content_txt{
+                text-align: center;
+                @include fontSet($fontFamily_source, 20px, normal, 500, $darkgreen);
+            }
+        }
+    }
+    .Flashcard_navigation{
+        @include size(100%, 100px);
+        @include flexBox(flex, row, space-around, center);
+        button{
+            @include size(200px, 50px);
+            border: 1px solid $white;
+            background-color: transparent;
+            border-radius: 20px;
+            cursor: pointer;
+            @include fontSet($fontFamily_montserrat, 20px, normal, 600, $white);
+        }
+        .Flashcard_navigation_studied{
+            @include size(200px, 50px);
+            background-color: $green;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            @include fontSet($fontFamily_montserrat, 20px, normal, 600, $white);
+        }
+    }
+}

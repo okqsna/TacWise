@@ -4,10 +4,29 @@
 .FlashcardPage {
     @include size(100%, auto);
     background-color: $lightyellow;
-    @include flexBox(flex, column, flex-start, flex-start); 
+    @include flexBox(flex, column, flex-start, center); 
     .FlashcardPage_header{
         @include size(100%, auto);
         margin-top: 26px;
         @include flexBox(flex, column, center, center);
+    }
+    .FlashcardPage_main{
+        @include flexBox(flex, row, flex-start, flex-start); 
+        a{
+            margin-top: 20vh;
+            text-decoration: none;
+            cursor: pointer;
+            @include flexBox(flex, row, center, center); 
+            @include size(300px, 70px);
+            background-color: $green;
+            border-radius: 20px;
+            transition: 0.2s;
+            filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
+            @include fontSet($fontFamily_montserrat, 20px, normal, 600, $white);
+            &:hover{
+                border-radius: 30px;;
+                font-weight: 700;
+            }
+        }
     }
 }

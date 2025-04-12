@@ -2,10 +2,11 @@ import React, {useState} from "react";
 import './flashcard_settings.scss';
 
 
-const FlashcardSettings = () => {
+const FlashcardSettings = ({onSave}) => {
     const [termsOn, setTermsOn] = useState(false);
     const [studyMode, setStudyMode] = useState(false);
     const [flashcard, setFlashcard] = useState(5);
+    const [savedInfo, setSavedInfo] = useState(false)
 
     const handleTermsChange = () => {
         setTermsOn(!termsOn);
@@ -20,15 +21,15 @@ const FlashcardSettings = () => {
         const flashcardSettings = {
             termsOn: termsOn,
             studyMode: studyMode,
-            flashcard: flashcard
+            flashcard: parseInt(flashcard)
         }
-        console.log(flashcardSettings);
+        setSavedInfo(true);
+        onSave(flashcardSettings);
     }
     const handleSubmit = (event) => {
         event.preventDefault();
         handleSave();
-    }                                                   
-
+    }
 
     return (
         <div className="FlashcardSettings">
@@ -56,6 +57,15 @@ const FlashcardSettings = () => {
                     <button className="FlashcardSettings_row2_save" onClick={handleSubmit}> Зберегти </button>
                 </div>
             </main>
+            <div className="FlashcardSettings_other">
+            {
+                savedInfo && (
+                <div className="FlashcardSettings_saved_info">
+                    Налаштування <span>успішно</span> збережені!
+                </div>
+                )
+            }
+            </div>
         </div>
     );
 }

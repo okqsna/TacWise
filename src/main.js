@@ -7,7 +7,7 @@ import LoginPage from "./pages/login_page/login_page.jsx";
 import DashboardPage from './pages/dashboard/dashboard.jsx';
 import ModulePage from './pages/module_page/module_page.jsx';
 import FlashcardPage from "./pages/flashcard_page/flashcard_page.jsx";
-
+import FlashcardStudyPage from "./pages/flashcard_study_page/flashcard_study_page.jsx";
 
 function Main(){
     return (
@@ -18,6 +18,7 @@ function Main(){
         <Route path="/login" element={<LoginPage />} />
         <Route path="/module" element={<ModulePage/>}/>
         <Route path="/flashcards" element={<FlashcardPage/>}/>
+        <Route path="/studyflashcards" element={<FlashcardStudyPage/>}/>
       </Routes>
     );
 }

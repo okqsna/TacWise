@@ -1,17 +1,29 @@
-import React from "react";
+import React, {useState} from "react";
 import "./flashcard_page.scss";
 import Header from '../../components/header_user/header_user.jsx';
 import Footer from '../../components/footer/footer.jsx';
 import FlashcardSettings from "../../components/flashcard_settings/flashcard_settings.jsx";
+import { Link } from "react-router-dom";
 
 const FlashcardPage = () => {
+  const [cardSettings, setCardSettings] = useState({
+      termsOn: false,
+      studyMode: false,
+      flashcard: 5
+  });
+
+  const handleCardSettingsSave = (newSettings) => {
+    setCardSettings(newSettings);
+  };
+
   return (
     <div className="FlashcardPage">
         <div className="FlashcardPage_header">
             <Header/>
         </div>
         <div className="FlashcardPage_main">
-            <FlashcardSettings/>
+            <FlashcardSettings onSave={handleCardSettingsSave}/>
+            <Link to="/studyflashcards" state={cardSettings}>Почати навчання</Link>
         </div>
         <Footer/>
     </div>
