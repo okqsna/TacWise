@@ -1,0 +1,18 @@
+@import '././style/mixins.scss';
+@import '././style/variables.scss';
+
+.FlashcardStudyPage{
+    @include size(100%, auto);
+    background-color: $lightyellow;
+    @include flexBox(flex, column, flex-start, center); 
+    .FlashcardStudyPage_header{
+        @include size(100%, auto);
+        margin-top: 26px;
+        @include flexBox(flex, column, center, center);
+    }
+    .FlashcardStudyPage_main{
+        min-height: 90vh;
+        @include flexBox(flex, column, center, center);
+        @include size(100%, auto);
+    }
+}

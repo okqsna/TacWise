@@ -2,16 +2,15 @@
 @import '././style/variables.scss';
 
 .FlashcardSettings{
-    @include size(100%, 300px);
+    @include size(100%, 600px);
     background-color: $lightyellow;
-    padding: 40px 22vh;
-    @include flexBox(flex, column, flex-start, flex-start); 
+    padding: 40px 0px;
+    @include flexBox(flex, column, center, flex-start); 
     .FlashcardSettings_cap{
         @include fontSet($fontFamily_montserrat, 30px, normal, 700, $green);
         margin-bottom: 26px;
     }
     main{
-    
         @include flexBox(flex, column, flex-start, flex-start); 
         .FlashcardSettings_row1{
             @include size(100%, auto);
@@ -77,6 +76,16 @@
                 cursor: pointer;
                 @include fontSet($fontFamily_montserrat, 17px, normal, 600, $white);  
                 background-color: $darkgreen;
+            }
+        }
+    }
+    .FlashcardSettings_other{
+        @include size(100%, 100px);
+        padding-top: 40px;
+        .FlashcardSettings_saved_info{
+            @include fontSet($fontFamily_montserrat, 20px, normal, 600, $black);  
+            span{
+                color: $green;
             }
         }
     }
