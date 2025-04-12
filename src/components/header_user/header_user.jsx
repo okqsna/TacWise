@@ -13,7 +13,7 @@ class HeaderUser extends React.Component{
                 <div className="header_right">
                     <div className="header_right_links">
                         <a href="/firstaidkit">Моя аптечка</a>
-                        <a>Навчання</a>
+                        <a href="/">Навчання</a>
                     </div>
                 </div>
             </header>
