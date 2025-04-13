@@ -16,6 +16,7 @@ const Dashboard = () => {
         const fetchData = async () => {
         try {
             const data = await getUserByToken(token);
+            console.log(data);
             setUserData(data.data || {});
             setError(false);
         } catch (error) {

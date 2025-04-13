@@ -8,6 +8,8 @@ from aid_models import get_data
 auth = Blueprint("auth", __name__)
 aid = Blueprint("aid", __name__)
 logged = Blueprint("logged", __name__)
+content = Blueprint("content", __name__)
+
 
 bcrypt = Bcrypt()
 
