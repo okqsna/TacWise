@@ -3,10 +3,15 @@ import HeaderUser from '../../components/header_user/header_user.jsx';
 import Footer from '../../components/footer/footer.jsx';
 import ModuleCard from '../../components/module_card/module_card.jsx';
 import { getUserByToken } from '../../services/userServices.js';
+import { getModulesContent } from '../../services/moduleServices.js';
 import './dashboard.scss';
 
 const Dashboard = () => {
     const token = sessionStorage.getItem('token');
+
+    const [modulesData, setModulesData] = useState([]);
+    const [loadingModules, setLoadingModules] = useState(true);
+    const [errorModules, setErrorModules] = useState(false);
 
     const [userData, setUserData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -26,6 +31,23 @@ const Dashboard = () => {
         }
         };
         fetchData();
+    }, []);
+
+    useEffect(() => {  
+        const fetchModulesData = async () =>{
+            try{
+                const data = await getModulesContent();
+                setModulesData(data);
+                setErrorModules(false);
+                console.log(data);
+            } catch (error){
+                console.error('Received an error:', error);
+                setErrorModules(true);
+            } finally {
+                setLoadingModules(false);
+            }
+        };
+        fetchModulesData();
     }, []);
     
 

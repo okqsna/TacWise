@@ -14,3 +14,5 @@ db_additional = client["db-additional"]
 aid_collection = db_additional["aid"]
 
 schools_collection = db_additional["schools"]
+
+modules_collection = db_additional["modules"]

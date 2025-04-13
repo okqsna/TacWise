@@ -3,7 +3,7 @@ from flask import Flask
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
 
-from routes import auth, aid, logged
+from routes import auth, aid, logged, modules
 
 
 app = Flask(__name__) # create a Flask app
@@ -16,9 +16,11 @@ CORS(app) # configure the app with CORS for cross-origin requests
 
 app.register_blueprint(auth, url_prefix="/api/auth") # register the auth blueprint with the app
 
-app.register_blueprint(aid, url_prefix="/api") 
+app.register_blueprint(aid, url_prefix="/api")
 
 app.register_blueprint(logged, url_prefix="/api/logged")
+
+app.register_blueprint(modules, url_prefix="/api/modules")
 
 if __name__ == "__main__":
     app.run(host='localhost', port=3001) # run the app on localhost:3001
