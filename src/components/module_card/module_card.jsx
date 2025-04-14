@@ -6,14 +6,14 @@ const ModuleCard = ({data}) =>{
     return(
         <Link to={`/module/${data.name}`} className="ModuleCard" state={{data}}>
             <div className="ModuleCard_txt">
-                <h3>{data.name}</h3>
-                <p>
+                <h3 className="ModuleCard_txt_h3">{data.name}</h3>
+                <p className="ModuleCard_txt_p">
                 {data.description}
                 </p>
             </div>
             <div className="ModuleCard_tags">
-                {data.tags.map((tag)=>
-                    <div className="ModuleCard_tag">
+                {data.tags.map((tag, key)=>
+                    <div className="ModuleCard_tag" key={key}>
                         {tag}
                     </div>
                 )}

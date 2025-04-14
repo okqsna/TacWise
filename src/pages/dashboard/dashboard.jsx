@@ -39,7 +39,6 @@ const Dashboard = () => {
                 const data = await getModulesContent();
                 setModulesData(data);
                 setErrorModules(false);
-                console.log(data);
             } catch (error){
                 console.error('Received an error:', error);
                 setErrorModules(true);
@@ -93,8 +92,8 @@ const Dashboard = () => {
                         {!loadingModules && !errorModules &&(
                              <div className="Dashboard_content_left_main">
                                 {
-                                    modulesData.data.map((module) => (
-                                        <ModuleCard data = {module}/>
+                                    modulesData.data.map((module, key) => (
+                                        <ModuleCard data = {module} key={key}/>
                                     ))
                                 }
                          </div>
