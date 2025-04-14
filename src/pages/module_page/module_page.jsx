@@ -44,11 +44,18 @@ const ModulePage = () =>{
                                 <a className='ModulePage_main_content_materials_notes' href={`${data.notes_tacwise}`}> Конспект від TacWise</a>
                                 <h4> Інші джерела</h4>
                                 <div className="ModulePage_main_content_materials_links">
-                                    {data.links.map((link) =>(
-                                        <a className="ModulePage_main_content_materials_link">
-                                            {link.key}
-                                        </a>
-                                    ))}
+                                {data.links.map((link, index) => {
+                                        const [name, url] = Object.entries(link)[0];
+                                        return (
+                                            <a
+                                            key={index}
+                                            className="ModulePage_main_content_materials_link"
+                                            href={url}
+                                            >
+                                            - {name}
+                                            </a>
+                                        );
+                                        })}
                                 </div>
                             </div>
                         )
@@ -59,9 +66,19 @@ const ModulePage = () =>{
                             <div className="ModulePage_main_content_lectures">
                                 <h2>Перелік відео-лекцій до теми</h2>
                                 <div className="ModulePage_main_content_lectures_links">
-                                    <a className="ModulePage_main_content_lectures_link">
-                                         - Лекція 1
-                                    </a>
+                                    {
+                                        data.videos.map((video, index) => {
+                                            const [name, url] = Object.entries(video)[0];
+                                            return(
+                                                <a 
+                                                key = {index}
+                                                href = {url}
+                                                className="ModulePage_main_content_lectures_link">
+                                                - {name}
+                                                </a>
+                                            )
+                                        })
+                                    }
                                 </div>
                             </div>
                         )

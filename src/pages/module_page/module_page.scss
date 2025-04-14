@@ -65,31 +65,44 @@
                 transition: 0.3s;
                 cursor: pointer;
                 @include flexBox(flex, column, flex-start, flex-start);
-                min-height: 450px;
+                min-height: 350px;
                 @include size(100%, auto);
                 h2{
                     @include fontSet($fontFamily_source, 33px, normal, 700, $green);
                     margin-bottom: 30px;
                 }
                 h4{
+                    margin-top: 20px;
                     @include fontSet($fontFamily_montserrat, 26px, normal, 700, $darkgreen);
                     margin-bottom: 17px;
                 }
                 .ModulePage_main_content_materials_notes{
                     @include fontSet($fontFamily_montserrat, 26px, normal, 700, $darkgreen);
                     margin-bottom: 17px;
+                    transition: 0.3s;
                     text-decoration: none;
+                    cursor: pointer;
+                    &:hover{
+                        color: $green;
+                        transition: 0.3s;
+                    }
                 }
                 .ModulePage_main_content_materials_links{
-                    @include flexBox(flex, column, flex-start, center);
+                    @include flexBox(flex, column, flex-start, flex-start);
                     .ModulePage_main_content_materials_link{
                         margin-top: 10px;
+                        text-align: left;
                         text-decoration: none;
                         @include fontSet($fontFamily_montserrat, 20px, normal, 500, $darkgreen);
+                        &:hover{
+                            text-decoration: underline;
+                            text-underline-offset: 10px;
+                        }
                     }
                 }
             }
             .ModulePage_main_content_lectures{
+                cursor: pointer;
                 padding: 40px 20px;
                 transition: 0.3s;
                 min-height: 300px;
@@ -103,12 +116,21 @@
                     margin-top: 10px;
                     @include flexBox(flex, column, flex-start, flex-start);
                     .ModulePage_main_content_lectures_link{
+                        text-align: left;
+                        text-decoration: none;
                         @include fontSet($fontFamily_montserrat, 20px, normal, 500, $darkgreen);
                         margin-bottom: 15px;
+                        transition: 0.3s;
+                        &:hover{
+                            text-decoration: underline;
+                            text-underline-offset: 10px;
+                            transition: 0.3s;
+                        }
                     }
                 }
             }
             .ModulePage_main_content_cards{
+                cursor: pointer;
                 padding: 40px 20px;
                 transition: 0.3s;
                 min-height: 150px;
