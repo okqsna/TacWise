@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import './flashcard_settings.scss';
 
 
-const FlashcardSettings = ({onSave}) => {
+const FlashcardSettings = ({onSave, module_data}) => {
     const [termsOn, setTermsOn] = useState(false);
     const [studyMode, setStudyMode] = useState(false);
     const [flashcard, setFlashcard] = useState(5);
