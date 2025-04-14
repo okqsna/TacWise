@@ -1,6 +1,7 @@
 """Module for handling authentication routes"""
 from flask import Blueprint, request, jsonify
 from flask_bcrypt import Bcrypt
+import random
 
 from user_models import create_user, get_user_by_email, login_user, get_user_by_token
 from aid_models import get_data
@@ -62,7 +63,7 @@ def get_aid_content():
 
 @logged.route("/user", methods=["GET"])
 def get_user():
-    """Function to get the first aid data"""
+    """Function to get the user data"""
     token = request.args.get('token') # get the token from the request
     if not token: # check if the token is present
         return jsonify({"error": "Token not provided"}), 400
@@ -73,6 +74,39 @@ def get_user():
     return jsonify({ # return the response
         "message": "Got data successfully",
         "data": data
+    }), 200
+
+@logged.route("/learning", methods=["GET"])
+def get_cards():
+    """function to get the learning cards data"""
+    token = request.args.get('token') # get the token from the request
+    module_id = request.args.get('id') # get the id from the request
+    n = request.args.get('n') # get the n from the request
+    all_mode = request.args.get('mode') # get the mode from the request
+
+    user = get_user_by_token(token) # get the user by token
+
+    if not user: # check if the user exists
+        return jsonify({"error": "User does not exist"}), 400
+
+    cards = user["flashcards"]['modules_cards']
+
+    for c in cards:
+        if c['id'] == int(module_id):
+            cards = c
+            break
+
+    cards = cards["data"]
+
+    if all_mode == "false":
+        # print(cards)
+        cards = [c for c in cards if c["learned"] == "false"]
+
+    cards = random.choices(cards, k=int(n)) # get n random cards
+
+    return jsonify({ # return the response
+        "message": "Got data successfully",
+        "data": cards
     }), 200
 
 @content.route("/modules", methods=["GET"])

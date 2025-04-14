@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import './flashcard_settings.scss';
+import {setCards} from "../../services/userServices";
 
 
 const FlashcardSettings = ({onSave, module_data}) => {
@@ -28,6 +29,7 @@ const FlashcardSettings = ({onSave, module_data}) => {
     }
     const handleSubmit = (event) => {
         event.preventDefault();
+        setCards(module_data.id, flashcard, studyMode);
         handleSave();
     }
 

@@ -60,4 +60,23 @@ const getUserByToken = async (token) => {
   }
 };
 
-export { registerUser, loginUser, getUserByToken };
+
+const setCards = async ( id, n, mode) => {
+  // method for sending data to the server
+  const token = sessionStorage.getItem("token");
+  try {
+    const response = await fetch(
+      `http://localhost:3001/api/logged/learning?token=${token}&id=${id}&n=${n}&mode=${mode}`,
+      {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
+
+export { registerUser, loginUser, getUserByToken, setCards };
