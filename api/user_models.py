@@ -60,6 +60,10 @@ def login_user(email, password):
     # create an access token
     access_token = create_access_token(identity=email, expires_delta=timedelta(days=7))
 
+    users_collection.update_one(
+    {"email": email},                    # filter
+    {"$set": {"token": access_token}}    # update
+)
     return access_token
 
 def get_user_by_token(token):
