@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import './module_page.scss';
-import Header from '../../components/header_user/header_user.jsx'
-import Footer from '../../components/footer/footer.jsx'
+import Header from '../../components/header_user/header_user.jsx';
+import Footer from '../../components/footer/footer.jsx';
+import { Link } from 'react-router-dom';
 
 const ModulePage = () =>{
     const location = useLocation();
@@ -88,7 +89,7 @@ const ModulePage = () =>{
                         isVisibleCards && (
                             <div className="ModulePage_main_content_cards">
                                 <h2>Флеш-картки для активного вивчення</h2>
-                                <a>Переходь за посиланням та навчайся!</a>
+                                <Link to={`/flashcards/${data.id}`}>Переходь за посиланням та навчайся!</Link>
                             </div>
                         )
                     }

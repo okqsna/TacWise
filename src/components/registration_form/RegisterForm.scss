@@ -2,20 +2,20 @@
 @import '././style/variables.scss';
 
 
-.register-form{
+.registerForm{
     @include flexBox(flex, column, center, center);
     @include size(100%, auto);
     min-height: 700px;
     background-color: $lightyellow;
-    h1{
+    .registerForm_cap{
         @include fontSet($fontFamily_montserrat, 25px, normal, 700, $darkgreen);
         margin-bottom: 30px;
     }
-    form{
+    .registerForm_form{
         @include flexBox(flex, column, center, center);
         @include size(100%, auto);
         margin-bottom: 30px;
-        input{
+        .registerForm_form_input{
             @include size(500px, 40px);
             @include fontSet($fontFamily_source, 17px, normal, 400, $darkgreen);
             margin-top: 5px;
@@ -26,15 +26,15 @@
             border: 1px solid $green;
             cursor: pointer;
         }
-        p{
+        .registerForm_form_link{
             @include fontSet($fontFamily_montserrat, 17px, normal, 600, $darkgreen);
-            a{
+            .registerForm_form_link_a{
                 color: $green;
                 text-decoration: none;
             }
         }
     }
-    button{
+    .registerForm_form_btn{
         @include size(200px, 60px);
         border-radius: 25px;
         @include fontSet($fontFamily_montserrat, 17px, normal, 600, $white);
@@ -42,5 +42,10 @@
         cursor: pointer;
         border: none;
         margin-top: 40px;
+    }
+    @media (max-width: 600px){
+        .registerForm_cap{
+            font-size: 18px;
+        }
     }
 }

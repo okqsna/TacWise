@@ -2,23 +2,23 @@
 @import '././style/variables.scss';
 
 
-.login-container{
+.loginContainer{
     @include flexBox(flex, column, center, center);
     @include size(100%, auto);
     min-height: 620px;
     background-color: $lightyellow;
-    h1{
+    .loginContainer_cap{
         @include fontSet($fontFamily_montserrat, 25px, normal, 700, $darkgreen);
         margin-bottom: 30px;
     }
-    form{
+    .loginContainer_form{
         @include flexBox(flex, column, center, center);
         @include size(100%, auto);
         margin-bottom: 30px;
         label{
             @include fontSet($fontFamily_montserrat, 17px, normal, 600, $darkgreen);
         }
-        input{
+        .loginContainer_form_input{
             @include size(500px, 40px);
             @include fontSet($fontFamily_source, 17px, normal, 400, $darkgreen);
             margin-top: 5px;
@@ -29,7 +29,7 @@
             border: 1px solid $green;
             cursor: pointer;
         }
-        a{
+        .loginContainer_link{
             margin-top: 10px;
             margin-bottom: 20px;
             @include fontSet($fontFamily_montserrat, 17px, normal, 600, $green);
@@ -43,12 +43,25 @@
             }
         }
     }
-    button{
+    .loginContainer_btn{
         @include size(200px, 60px);
         border-radius: 25px;
         @include fontSet($fontFamily_montserrat, 17px, normal, 600, $white);
         background-color: $darkgreen;
         cursor: pointer;
         border: none;
+    }
+    @media (max-width: 600px) {
+        .loginContainer_cap{
+            font-size: 18px;
+        }
+        .loginContainer_form{
+            .loginContainer_form_input{
+                @include size(330px, 40px);
+            }
+            .loginContainer_link{
+                font-size: 15px;
+            }
+        }
     }
 }

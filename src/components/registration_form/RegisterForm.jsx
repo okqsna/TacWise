@@ -25,9 +25,9 @@ const RegisterForm = () => {
     }
 
   return (
-    <div className="register-form">
-      <h1>Створіть акаунт і хутчіш навчатись!</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="registerForm">
+      <h1 className='registerForm_cap'>Створіть акаунт і хутчіш навчатись!</h1>
+      <form onSubmit={handleSubmit} className='registerForm_form'>
         <input 
           type="text" 
           placeholder="Ім'я" 
@@ -35,6 +35,7 @@ const RegisterForm = () => {
           value={formData.fname}
           id='fname'
           onChange={handleChange}
+          className='registerForm_form_input'
         />
         <input 
           type="text" 
@@ -42,6 +43,7 @@ const RegisterForm = () => {
           name='lname'
           value={formData.lname}
           id='lname'
+          className='registerForm_form_input'
           onChange={handleChange}
         />
         <input 
@@ -49,6 +51,7 @@ const RegisterForm = () => {
           placeholder="Електронна пошта" 
           value={formData.email} 
           name='email'
+          className='registerForm_form_input'
           id='email'
           onChange={handleChange}
         />
@@ -57,6 +60,7 @@ const RegisterForm = () => {
           placeholder="Про вас" 
           name='about'
           value={formData.about}
+          className='registerForm_form_input'
           id='about'
           onChange={handleChange}
         />
@@ -64,12 +68,13 @@ const RegisterForm = () => {
           type="password" 
           placeholder="Пароль" 
           value={formData.password} 
+          className='registerForm_form_input'
           name='password'
           id='password'
           onChange={handleChange}
         />
-        <p>Або <a href="/login">увійдіть</a>, якщо вже маєте акаунт.</p>
-        <button type="submit">Доєднатись</button>
+        <p className='registerForm_form_link'>Або <a href="/login" className='registerForm_form_link_a'>увійдіть</a>, якщо вже маєте акаунт.</p>
+        <button type="submit" className='registerForm_form_btn'>Доєднатись</button>
       </form>
     </div>
   );

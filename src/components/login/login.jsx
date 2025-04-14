@@ -24,13 +24,13 @@ function Login() {
          loginUser(formData)
      }
   return (
-    <div className="login-container">
-      <h1>Увійдіть, і нумо навчатись!</h1>
-      <form onChange={handleChange} onSubmit={handleSubmit}>
-        <input type="email" placeholder='Електронна пошта' name='email' id='email'/>
-        <input type="password" placeholder='Пароль' name='password' id='password'/>
-        <a href="/registration">Або створіть акаунт</a>
-        <button type='submit'>Увійти</button>
+    <div className="loginContainer">
+      <h1 className='loginContainer_cap'>Увійдіть, і нумо навчатись!</h1>
+      <form onChange={handleChange} onSubmit={handleSubmit} className='loginContainer_form'>
+        <input type="email" placeholder='Електронна пошта' name='email' id='email' className='loginContainer_form_input' />
+        <input type="password" placeholder='Пароль' name='password' id='password' className='loginContainer_form_input'/>
+        <a href="/registration" className='loginContainer_link'>Або створіть акаунт</a>
+        <button type='submit' className='loginContainer_btn'>Увійти</button>
       </form>
     </div>
   );
