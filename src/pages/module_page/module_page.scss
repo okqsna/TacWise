@@ -76,9 +76,9 @@
                     margin-bottom: 17px;
                 }
                 .ModulePage_main_content_materials_notes{
-                    @include fontSet($fontFamily_montserrat, 20px, normal, 500, $darkgreen);
-                    margin-bottom: 15px;
-                    text-decoration: none
+                    @include fontSet($fontFamily_montserrat, 26px, normal, 700, $darkgreen);
+                    margin-bottom: 17px;
+                    text-decoration: none;
                 }
                 .ModulePage_main_content_materials_links{
                     @include flexBox(flex, column, flex-start, center);

@@ -34,8 +34,8 @@
         min-height: 700px;
         @include flexBox(flex, row, center, space-around);
         .Dashboard_content_left{
-            min-height: 700px;
             padding-left: 21vh;
+            padding-bottom: 70px;
             @include size(65%, auto);
             @include flexBox(flex, column, flex-start, flex-start);
             .Dashboard_content_left_top{
@@ -101,11 +101,11 @@
                 }
             }
             .Dashboard_content_left_main{
+                text-decoration: none;
                 @include flexBox(flex, column, flex-start, flex-start);
             }
         }
         .Dashboard_content_right{
-            min-height: 800px;
             @include size(35%, auto);
             .Dashboard_content_right_widget{
                 @include size(365px, 685px);

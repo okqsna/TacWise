@@ -4,6 +4,8 @@
 .ModuleCard{
     @include flexBox(flex, row, space-between, flex-start);
     @include size(730px, 270px);
+    text-decoration: none;
+    margin-bottom: 50px;
     border-radius: 20px;
     background-color: $lightyellow;
     border: 2px solid $darkgreen;
@@ -13,11 +15,14 @@
         @include flexBox(flex, column, space-around, flex-start);
         user-select: none;
         h3{
-            @include fontSet($fontFamily_source, 36px, normal, 700, $green);
+            @include fontSet($fontFamily_source, 34px, normal, 700, $green);
             margin-bottom: 16px;
+            max-width: 300px;
+            line-height: 30px;
         }
         p{
             width: 360px;
+            max-width: 300px;
             @include fontSet($fontFamily_montserrat, 14px, normal, 500, $black);
 
         }
@@ -25,9 +30,11 @@
     .ModuleCard_tags{
         @include size(auto, 270px);
         cursor: pointer;
-        @include flexBox(flex, column, space-around, flex-end);
+        @include flexBox(flex, column, flex-start, flex-start);
         .ModuleCard_tag{
-            padding: 10px 15px;
+            padding: 10px;
+            margin-bottom: 5px;
+            @include size(auto, 40px);
             border-radius: 20px;
             background-color: $darkgreen;
             @include fontSet($fontFamily_montserrat, 15px, normal, 500, $white);
