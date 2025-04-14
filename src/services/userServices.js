@@ -1,3 +1,4 @@
+
 const registerUser = async (userData) => {
   // method for sending data to the server
   try {
@@ -5,7 +6,7 @@ const registerUser = async (userData) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(userData),
-    }); 
+    });
 
     const data = await response.json();
     if (data.token) {
@@ -18,7 +19,6 @@ const registerUser = async (userData) => {
     console.error("Error:", error);
   }
 };
-
 
 const loginUser = async (userData) => {
   // method for sending data to the server
@@ -43,10 +43,16 @@ const loginUser = async (userData) => {
 const getUserByToken = async (token) => {
   // method for sending data to the server
   try {
-    const response = await fetch(`http://localhost:3001/api/logged/user?token=${token}`, {
-      method: "GET",
-      headers: { "Content-Type": "application/json" }
-    });
+    const response = await fetch(
+      `http://localhost:3001/api/logged/user?token=${token}`,
+      {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+    if (response.status === 400) {
+      sessionStorage.clear();
+    }
     const data = await response.json();
     return data;
   } catch (error) {
@@ -54,4 +60,4 @@ const getUserByToken = async (token) => {
   }
 };
 
-export { registerUser, loginUser, getUserByToken};
+export { registerUser, loginUser, getUserByToken };
