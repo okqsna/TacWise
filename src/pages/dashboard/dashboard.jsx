@@ -82,11 +82,11 @@ const Dashboard = () => {
                                     <div className="Dashboard_content_left_top_modules_logo_img"></div>
                                     <p className="Dashboard_content_left_top_modules_logo_txt">Ваші модулі</p>
                                 </div>
-                                <div className="Dashboard_content_left_top_modules_navigation">
+                                {/* <div className="Dashboard_content_left_top_modules_navigation">
                                     <div className="Dashboard_content_left_top_modules_btn_1"> Наявні </div>
                                     <div className="Dashboard_content_left_top_modules_btn_2"> Вивчені </div>
                                     <div className="Dashboard_content_left_top_modules_btn_3"> Усі </div>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     
@@ -97,8 +97,6 @@ const Dashboard = () => {
                                         <ModuleCard data = {module}/>
                                     ))
                                 }
-                             {/* temporary (waiting for database to be connected)
-                             <ModuleCard /> */}
                          </div>
                         )}                        
                     </div>
