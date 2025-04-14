@@ -10,9 +10,7 @@ const LoginPage = () => {
       <div className="login-page-header">
         <Header />
       </div>
-      <main className="content">
-        <LoginForm />
-      </main>
+      <LoginForm />
       <Footer />
     </div>
   );

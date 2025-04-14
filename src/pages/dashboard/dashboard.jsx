@@ -90,11 +90,17 @@ const Dashboard = () => {
                             </div>
                         </div>
                     
-                        {/* modules available */}
-                        <div className="Dashboard_content_left_main">
-                            {/* temporary (waiting for database to be connected) */}
-                            <ModuleCard />
-                        </div>
+                        {!loadingModules && !errorModules &&(
+                             <div className="Dashboard_content_left_main">
+                                {
+                                    modulesData.data.map((module) => (
+                                        <ModuleCard data = {module}/>
+                                    ))
+                                }
+                             {/* temporary (waiting for database to be connected)
+                             <ModuleCard /> */}
+                         </div>
+                        )}                        
                     </div>
                     {/* user widget, data (streaks etc) */}
                     <div className="Dashboard_content_right">
@@ -112,7 +118,7 @@ const Dashboard = () => {
                                     <p>Ви навчаєтесь вже</p>
                                     <div className="stats_widget_days_data">
                                         <div className="stats_widget_days_data_img"></div>
-                                        53 дні
+                                        
                                     </div>
                                     <p>Ви крутіший ніж 59% користувачів</p>
                                 </div>
@@ -120,7 +126,7 @@ const Dashboard = () => {
                                     <p>Ви вивчили вже</p>
                                     <div className="stats_widget_modules_data">
                                         <div className="stats_widget_modules_data_img"></div>
-                                        1/12
+                                        
                                     </div>
                                     <p>модулів. Це 8% від усіх</p>
                                 </div>

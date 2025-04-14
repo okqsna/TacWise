@@ -1,32 +1,32 @@
 import './module_card.scss';
-
+import { Link } from 'react-router-dom';
 
 // prototype of card used in Dashboard and Module page
-const ModuleCard = () =>{
+const ModuleCard = ({data}) =>{
     return(
-        <div className="ModuleCard">
+        <Link to={`/module/${data.name}`} className="ModuleCard" state={{data}}>
             <div className="ModuleCard_txt">
-                <h3>MARCH</h3>
+                <h3>{data.name}</h3>
                 <p>
-                Модуль спрямований на поетапне вивчення фіксованого алгоритму дій для 
-                роботи з пораненим у безпечній зоні, який передбачає порятунок життя 
-                людини, якій вже надали першу допомогу в червоній зоні.
+                {data.description}
                 </p>
             </div>
             <div className="ModuleCard_tags">
-                <div className="ModuleCard_tag">
-                    алгоритми
-                </div>
+                {data.tags.map((tag)=>
+                    <div className="ModuleCard_tag">
+                        {tag}
+                    </div>
+                )}
             </div>
             <div className="ModuleCard_progress">
                 <p className="ModuleCard_progress_cap">
                     Прогрес
                 </p>
                 <div className="ModuleCard_progress_visuals">
-                    <p className="ModuleCard_progress_visuals_p">50%</p>
+                    <p className="ModuleCard_progress_visuals_p">0%</p>
                 </div>
             </div>
-        </div>
+        </Link>
     )
 }
 export default ModuleCard;
