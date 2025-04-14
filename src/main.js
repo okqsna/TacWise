@@ -17,7 +17,7 @@ function Main(){
         <Route path="/login" element={<LoginPage />} />
         <Route path="/firstaidkit" element={<FirstAidPage/>} />
         <Route path="/module/:name" element={<ModulePage/>}/>
-        <Route path="/flashcards" element={<FlashcardPage/>}/>
+        <Route path="/flashcards/:id" element={<FlashcardPage/>}/>
         <Route path="/studyflashcards" element={<FlashcardStudyPage/>}/>
       </Routes>
     );
