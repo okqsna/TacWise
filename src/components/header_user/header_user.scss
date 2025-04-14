@@ -76,6 +76,9 @@
                 a {
                     @include fontSet($fontFamily_montserrat, 15px, normal, 600, $white);
                 }
+                .study{
+                    display: none;
+                }
             }
 
             .header_right_links_sign_up {
