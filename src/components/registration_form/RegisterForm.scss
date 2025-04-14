@@ -45,7 +45,15 @@
     }
     @media (max-width: 600px){
         .registerForm_cap{
-            font-size: 18px;
+            font-size: 17px;
+        }
+        .registerForm_form{
+            .registerForm_form_input{
+                @include size(300px, 40px);
+            }
+            .registerForm_form_link{
+                font-size: 14px;
+            }
         }
     }
 }

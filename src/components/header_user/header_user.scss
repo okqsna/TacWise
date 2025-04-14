@@ -22,7 +22,7 @@
 
     .header_right {
         @include size(315px, 76px);
-        @include flexBox(flex, row, space-between, center);
+        @include flexBox(flex, row, space-around, center);
 
         .header_right_links {
             @include flexBox(flex, row, space-between, center);

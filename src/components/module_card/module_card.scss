@@ -14,13 +14,13 @@
     .ModuleCard_txt{
         @include flexBox(flex, column, space-around, flex-start);
         user-select: none;
-        h3{
+        .ModuleCard_txt_h3{
             @include fontSet($fontFamily_source, 34px, normal, 700, $green);
             margin-bottom: 16px;
             max-width: 300px;
             line-height: 30px;
         }
-        p{
+        .ModuleCard_txt_p{
             width: 360px;
             max-width: 300px;
             @include fontSet($fontFamily_montserrat, 14px, normal, 500, $black);
@@ -56,6 +56,98 @@
             .ModuleCard_progress_visuals_p{
                 @include fontSet($fontFamily_source, 30px, normal, 800, $green);
             }
+        }
+    }
+    @media (max-width:1300px){
+        @include size(560px, 270px);
+        .ModuleCard_tags{
+            padding: 20px;
+            .ModuleCard_tag{
+                @include flexBox(flex, column, center, center);
+                font-size: 10px;
+                text-align: center;
+                @include size(80px, 35px);
+            }
+        }
+        .ModuleCard_progress{
+            .ModuleCard_progress_cap{
+                margin-left: 5px;
+                @include fontSet($fontFamily_montserrat, 15px, normal, 600, $black);
+            }
+            .ModuleCard_progress_visuals{
+                @include size(80px, 80px);
+                .ModuleCard_progress_visuals_p{
+                    @include fontSet($fontFamily_source, 20px, normal, 800, $green);
+                }
+            }
+        }
+    }
+    @media (max-width:1125px){
+        @include size(470px, 270px);
+        .ModuleCard_txt{
+            .ModuleCard_txt_h3{
+                max-width: 200px;
+                font-size: 20px;
+                line-height: 20px;
+            }
+            .ModuleCard_txt_p{
+                max-width: 200px;
+            }
+        }
+    }
+    
+    @media (max-width:1000px){
+        @include size(560px, 270px);
+        .ModuleCard_tags{
+            padding: 20px;
+            .ModuleCard_tag{
+                @include flexBox(flex, column, center, center);
+                font-size: 10px;
+                text-align: center;
+                @include size(80px, 35px);
+            }
+        }
+        .ModuleCard_progress{
+            .ModuleCard_progress_cap{
+                margin-left: 5px;
+                @include fontSet($fontFamily_montserrat, 15px, normal, 600, $black);
+            }
+            .ModuleCard_progress_visuals{
+                @include size(80px, 80px);
+                .ModuleCard_progress_visuals_p{
+                    @include fontSet($fontFamily_source, 20px, normal, 800, $green);
+                }
+            }
+        }
+    }
+    @media (max-width:630px){
+        @include size(470px, 270px);
+        .ModuleCard_txt{
+            .ModuleCard_txt_h3{
+                max-width: 200px;
+                font-size: 20px;
+                line-height: 20px;
+            }
+            .ModuleCard_txt_p{
+                max-width: 200px;
+            }
+        }
+    }
+    
+    @media (max-width:500px){
+        @include size(360px, 290px);
+        .ModuleCard_txt{
+            .ModuleCard_txt_h3{
+                max-width: 200px;
+                font-size: 20px;
+                line-height: 20px;
+            }
+            .ModuleCard_txt_p{
+                max-width: 200px;
+            }
+        }
+        .ModuleCard_progress{
+            display: none;
         }
     }
 }

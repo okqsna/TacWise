@@ -172,4 +172,103 @@
             }
         }
     }
+    @media (max-width: 1300px){
+        .Dashboard_content{
+            .Dashboard_content_right{
+                .Dashboard_content_right_widget{
+                    @include size(300px, 685px);
+                    .user_data_widget{
+                        .user_data_widget_name{
+                            font-size: 28px;
+                        }
+                    }
+                    .stats_widgets{
+                        .stats_widget_days{
+                            @include size(220px, 170px);
+                            font-size: 14px;
+                        }
+                        .stats_widget_modules{
+                            font-size: 14px;
+                            @include size(220px, 170px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media (max-width: 1000px){
+        .Dashboard_content{
+            @include flexBox(flex, column-reverse, center, center);
+            .Dashboard_content_left{
+                @include flexBox(flex, column, center, center);
+                @include size(100%, auto);
+                padding: 0px;
+                .Dashboard_content_left_top{
+                    @include flexBox(flex, column, center, center);
+                    .Dashboard_content_left_top_congrats{
+                        @include flexBox(flex, row, center, center);
+                    }
+                }
+            }
+            .Dashboard_content_right{
+                margin-bottom: 60px;
+                @include flexBox(flex, column-reverse, center, center);
+                @include size(100%, auto);
+                padding: 0px;
+                .Dashboard_content_right_widget{
+                    @include size(60%, 200px);
+                    .stats_widgets{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    @media (max-width: 630px){
+        .Dashboard_content{
+            .Dashboard_content_left{
+                .Dashboard_content_left_top{
+                    @include size(65%, auto);
+                    @include flexBox(flex, column, center, center);
+                    .Dashboard_content_left_top_congrats{
+                        @include flexBox(flex, row, center, center);
+                        margin-bottom: 20px;
+                        p{
+                            @include fontSet($fontFamily_montserrat, 20px, normal, 700, $darkgreen);
+                        }
+                        span{
+                            @include fontSet($fontFamily_montserrat, 20px, normal, 700, $darkgreen);
+                            margin-left: 10px;
+                            margin-right: 10px;
+                        }
+                    }
+                    .Dashboard_content_left_top_modules{
+                        .Dashboard_content_left_top_modules_logo{
+                            margin-left: 100px;
+                            .Dashboard_content_left_top_modules_logo_txt{
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media (max-width: 430px){
+        .Dashboard_content{
+            .Dashboard_content_right{
+                .Dashboard_content_right_widget{
+                    @include size(60%, 200px);
+                    .user_data_widget{
+                        .user_data_widget_name{
+                            font-size: 18px;
+                        }
+                        .user_data_widget_about{
+                            font-size: 12px;
+                        }
+                }
+            }
+        }
+    }
+    }
 }
