@@ -4,12 +4,12 @@ from flask_bcrypt import Bcrypt
 
 from user_models import create_user, get_user_by_email, login_user, get_user_by_token
 from aid_models import get_data
-from module_modules import get_modules_data
+from content_models import get_modules_data
 
 auth = Blueprint("auth", __name__)
 aid = Blueprint("aid", __name__)
 logged = Blueprint("logged", __name__)
-modules = Blueprint("modules", __name__)
+content = Blueprint("content", __name__)
 
 bcrypt = Bcrypt()
 
@@ -75,11 +75,12 @@ def get_user():
         "data": data
     }), 200
 
-@modules.route("/modules", methods=["GET"])
+@content.route("/modules", methods=["GET"])
 def get_modules():
     """Function to get the data of the modules"""
     data = get_modules_data() # get data of the modules
+    data["_id"] = str(data["_id"])
     return jsonify({ # return the response
         "message": "Got data successfully",
-        "data": data["modules"]
+        "data": data['modules']
     }), 200

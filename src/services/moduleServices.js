@@ -1,7 +1,7 @@
 const getModulesContent = async () => {
     // method for getting data to the server
     try {
-      const response = await fetch("http://localhost:3001/api/modules", {
+      const response = await fetch("http://localhost:3001/api/content/modules", {
         method: "GET",
         headers: { "Content-Type": "application/json" }
       });

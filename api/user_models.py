@@ -4,6 +4,7 @@ from flask_bcrypt import Bcrypt
 from flask_jwt_extended import create_access_token
 
 from db import users_collection
+from content_models import get_cards
 
 
 bcrypt = Bcrypt() # create an instance of the Bcrypt class
@@ -15,20 +16,25 @@ def create_user(fname, lname, email, about, password):
     # create an access token
     access_token = create_access_token(identity=email, expires_delta=timedelta(days=7))
 
+    cards = get_cards() # get the cards from the content model
+
+    del cards["_id"]
+
     user = {
         "first name": fname,
         "last name": lname,
         "email": email,
         "about": about,
         "password": hashed_pw,
-        "token": access_token
+        "token": access_token,
+        "flashcards": cards,
     }
 
     required_fields = ["first name", "last name", "email", "about", "password", "token"]
     missing = [field for field in required_fields if field not in user]
 
     if missing:
-        return "Missing fields: {', '.join(missing)}"
+        return f"Missing fields: {', '.join(missing)}"
 
     if not isinstance(user["password"], str) or len(user["password"]) < 6:
         return "Password must be at least 6 characters"
