@@ -27,7 +27,7 @@ const FlashcardPage = () => {
         </div>
         <div className="FlashcardPage_main">
             <FlashcardSettings onSave={handleCardSettingsSave} module_data = {data}/>
-            <Link to="/studyflashcards" state={cardSettings}>Почати навчання</Link>
+            <Link to="/studyflashcards" state={cardSettings} className="FlashcardPage_main_btn">Почати навчання</Link>
         </div>
         <Footer/>
     </div>

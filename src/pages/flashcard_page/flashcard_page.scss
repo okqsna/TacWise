@@ -12,7 +12,7 @@
     }
     .FlashcardPage_main{
         @include flexBox(flex, row, flex-start, flex-start); 
-        a{
+        .FlashcardPage_main_btn{
             margin-top: 20vh;
             text-decoration: none;
             cursor: pointer;
@@ -24,8 +24,40 @@
             filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
             @include fontSet($fontFamily_montserrat, 20px, normal, 600, $white);
             &:hover{
-                border-radius: 30px;;
+                border-radius: 30px;
                 font-weight: 700;
+            }
+        }
+    }
+    @media (max-width: 1000px){
+        .FlashcardPage_main{
+            @include flexBox(flex, column, flex-start, center);
+            .FlashcardPage_main_btn{
+                margin-top: 70px;
+                margin-bottom: 70px;
+            }
+        }
+    }
+    @media (max-width: 1000px){
+        .FlashcardPage_main{
+            @include flexBox(flex, column, flex-start, center);
+            .FlashcardPage_main_btn{
+                margin-top: 70px;
+                @include size(230px, 60px);
+                margin-bottom: 70px;
+            }
+        }
+    }
+    @media (max-width: 550px){
+        .FlashcardPage_main{
+            @include flexBox(flex, column, flex-start, center);
+            .FlashcardPage_main_btn{
+                margin-top: 100px;
+                @include size(150px, 60px);
+                font-size: 14px;
+                margin-left: 0px;
+                text-align: center;
+                margin-bottom: 60px;
             }
         }
     }

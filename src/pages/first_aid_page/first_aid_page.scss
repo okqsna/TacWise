@@ -116,4 +116,54 @@
             }
         }
     }
+    @media (max-width: 1300px){
+        .FirstAidPage_content{
+            @include flexBox($displayFlex, column, center, center);
+        }
+    }
+    @media (max-width: 720px){
+        .FirstAidPage_cap{
+            font-size: 25px;
+        }
+        .FirstAidPage_content{
+            @include flexBox($displayFlex, column, center, center);
+            .FirstAidPage_content_col1{
+                .FirstAidPage_content_col1_product{
+                    @include size(400px, 300px);
+                    padding-right: 105px;
+                    .FirstAidPage_content_col1_product_img{
+                        max-width: 200px;
+                    }
+                    .FirstAidPage_content_col1_product_right{
+                        .FirstAidPage_content_col1_product_caption{
+                            font-size: 17px;
+                        }
+                        .FirstAidPage_content_col1_product_description{
+                            font-size: 11px;
+                        }
+                    }
+                }
+            }
+            .FirstAidPage_content_col2{
+                .FirstAidPage_content_col2_product{
+                    @include size(400px, 300px);
+                    padding-left: 60px;
+
+                    .FirstAidPage_content_col2_product_img{
+                        max-width: 200px;
+                    }
+                    .FirstAidPage_content_col2_product_left{
+                        .FirstAidPage_content_col2_product_caption{
+                            font-size: 17px;
+                        }
+                        .FirstAidPage_content_col2_product_description{
+                            font-size: 11px;
+                            @include size(200px, auto);
+                            margin-left: 0px;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

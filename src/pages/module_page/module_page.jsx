@@ -32,8 +32,8 @@ const ModulePage = () =>{
                         <div className="ModulePage_main_top_btn_img"></div>
                         Назад </a>
                     <div className="ModulePage_main_top_txt">
-                        <h3>{data.name}</h3>
-                        <p>{data.description}</p>
+                        <h3 className="ModulePage_main_top_txt_h3">{data.name}</h3>
+                        <p className="ModulePage_main_top_txt_p">{data.description}</p>
                     </div>
                 </div>
                 <div className="ModulePage_main_content">

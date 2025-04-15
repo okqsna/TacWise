@@ -45,8 +45,8 @@ const FlashcardSettings = ({onSave, module_data}) => {
                     </div>
                     <div className="FlashcardSettings_row1_terms">
                         <div className="FlashcardSettings_row1_terms_txt">
-                            <p className="FlashcardSettings_row1_terms_txt_p">Терміни <span>знизу</span></p>
-                            <p className="FlashcardSettings_row1_terms_txt_p">Визначення <span>зверху</span></p>
+                            <p className="FlashcardSettings_row1_terms_txt_p">Терміни <span className="span">знизу</span></p>
+                            <p className="FlashcardSettings_row1_terms_txt_p">Визначення <span className="span">зверху</span></p>
                         </div>
                         <input className="FlashcardSettings_row1_terms_input" type="checkbox" onChange={handleTermsChange}/>
                     </div>

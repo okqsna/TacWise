@@ -68,7 +68,7 @@
                 @include fontSet($fontFamily_montserrat, 17px, normal, 600, $black);  
 
             }
-            button{
+            .FlashcardSettings_row2_save{
                 text-decoration: none;
                 @include size(150px, 70px);
                 border: none;
@@ -86,6 +86,104 @@
             @include fontSet($fontFamily_montserrat, 20px, normal, 600, $black);  
             span{
                 color: $green;
+            }
+        }
+    }
+    @media (max-width: 1000px){
+        padding: 0px;
+        margin-bottom: -200px;
+        .FlashcardSettings_other{
+            @include size(100%, 100px);
+            padding-top: 40px;
+        }
+    }
+    @media (max-width: 700px){
+        padding: 0px;
+        margin-bottom: -200px;
+        main{
+            .FlashcardSettings_row1{
+                .FlashcardSettings_row1_quantity{
+                    @include size(240px, 60px);
+                    font-size: 14px;
+                }
+                .FlashcardSettings_row1_terms{
+                    @include size(240px, 60px);
+                    .FlashcardSettings_row1_terms_txt{
+                        .FlashcardSettings_row1_terms_txt_p{
+                            font-size: 14px;
+                            .span{
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+            .FlashcardSettings_row2{
+                .FlashcardSettings_row2_studymode{
+                    @include size(240px, 60px);
+                    font-size: 14px;
+                }
+                .FlashcardSettings_row2_save{
+                    @include size(110px, 60px);
+                    font-size: 14px;
+                }
+            }
+        }
+        .FlashcardSettings_other{
+            @include size(100%, 100px);
+            padding-top: 40px;
+        }
+    }
+    @media (max-width: 550px){
+        @include flexBox(flex, column, center, center); 
+        padding: 0px;
+        margin-bottom: -200px;
+        .FlashcardSettings_cap{
+            font-size: 18px;
+        }
+        main{
+            .FlashcardSettings_row1{
+                @include flexBox(flex, column, center, center);
+                .FlashcardSettings_row1_quantity{
+                    margin: 0px;
+                    @include size(240px, 60px);
+                    margin-bottom: 30px;
+                    font-size: 14px;
+                }
+                .FlashcardSettings_row1_terms{
+                    @include size(240px, 60px);
+                    margin: 0px;
+                    .FlashcardSettings_row1_terms_txt{
+                        .FlashcardSettings_row1_terms_txt_p{
+                            font-size: 14px;
+                            .span{
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+            .FlashcardSettings_row2{
+                @include flexBox(flex, column, center, center);
+                .FlashcardSettings_row2_studymode{
+                    @include size(240px, 60px);
+                    font-size: 14px;
+                    margin-bottom: 30px;
+                }
+                .FlashcardSettings_row2_save{
+                    @include size(110px, 60px);
+                    font-size: 14px;
+                }
+            }
+        }
+        .FlashcardSettings_other{
+            @include size(100%, 100px);
+            padding-top: 40px;
+            .FlashcardSettings_saved_info{
+                @include fontSet($fontFamily_montserrat, 10px, normal, 600, $black);  
+                span{
+                    color: $green;
+                }
             }
         }
     }
