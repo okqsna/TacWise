@@ -8,7 +8,7 @@ import './flashcard_study_page.scss';
 const FlashcardStudyPage = () => {
     const settings_location = useLocation();
     const settings = settings_location.state;
-    console.log(settings)
+
 
     return(
         <div className="FlashcardStudyPage">

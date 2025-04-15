@@ -1,9 +1,11 @@
 import React, {useState} from "react";
 import './flashcard_settings.scss';
 import {setCards} from "../../services/userServices";
-
+import { useLocation } from "react-router-dom";
 
 const FlashcardSettings = ({onSave, module_data}) => {
+    const location = useLocation();
+    const data = location.state;
     const [termsOn, setTermsOn] = useState(false);
     const [studyMode, setStudyMode] = useState(false);
     const [flashcard, setFlashcard] = useState(5);
@@ -29,7 +31,7 @@ const FlashcardSettings = ({onSave, module_data}) => {
     }
     const handleSubmit = (event) => {
         event.preventDefault();
-        setCards(module_data.id, flashcard, studyMode);
+        setCards(data.id, flashcard, studyMode);
         handleSave();
     }
 
