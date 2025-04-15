@@ -179,8 +179,9 @@
         .FlashcardSettings_other{
             @include size(100%, 100px);
             padding-top: 40px;
+            margin-bottom: 30px;
             .FlashcardSettings_saved_info{
-                @include fontSet($fontFamily_montserrat, 10px, normal, 600, $black);  
+                @include fontSet($fontFamily_montserrat, 14px, normal, 600, $black);  
                 span{
                     color: $green;
                 }
