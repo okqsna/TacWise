@@ -1,22 +1,19 @@
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import '../flashcard/flashcard.scss';
 
-const Flashcard = ({ settings }) => {
-    // example for MARCH MODULE
-    const flashcardsData = [
-        { term: "Якщо турнікет не зупинив кровотечу", definition: "Перевір правильність накладання або додай другий вище", studied: false },
-        { term: "Що означає літера M в алгоритмі MARCH", definition: "Massive hemorrhage — масивна кровотеча", studied: false },
-        { term: "Який засіб використовують для зупинки артеріальної кровотечі на кінцівці", definition: "Турнікет", studied: false },
-        { term: "Час накладання турнікета потрібно", definition: "Записати на турнікеті або шкірі", studied: false },
-        { term: "R в алгоритмі MARCH означає", definition: "Respiration — дихання", studied: false },
-        { term: "Ознака напруженого пневмотораксу", definition:"Розширення грудної клітки з одного боку, задишка, посиніння.", studied: false },
-        { term: "A в MARCH означає", definition: "Airway — прохідність дихальних шляхів", studied: false },
-    ];
+import {learnedCard} from "../../services/userServices.js";
 
+const Flashcard = ({ settings }) => {
+    const flashcardsData = JSON.parse(sessionStorage.getItem("flashcard"))
     const [currentCard, setCurrentCard] = useState(0);
     const [showDefinition, setShowDefinition] = useState(false);
     const totalCards = flashcardsData.length;
     const currentCardShow = flashcardsData[currentCard];
+
+    const location = useLocation();
+    // const data = location.state.data;
+    // const module_id = data.id; //id should be setten to the route
 
     const toggleCard = () => {
         setShowDefinition(prev => !prev);

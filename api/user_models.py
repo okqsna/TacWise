@@ -71,3 +71,21 @@ def get_user_by_token(token):
     Function to get user by their token
     """
     return users_collection.find_one({"token": token})
+
+
+def set_card_status(data):
+    """Function to set the status of a card"""
+    users_collection.update_one(
+    {
+        "token": data['token']  # your actual token string
+    },
+    {
+        "$set": {
+            "flashcards.modules_cards.$[mod].data.$[card].learned": "true"
+        }
+    },
+    array_filters=[
+        {"mod.id": data['module']},
+        {"card.id": int(data['card'])}
+    ]
+)

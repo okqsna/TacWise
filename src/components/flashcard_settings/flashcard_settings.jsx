@@ -1,11 +1,11 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import './flashcard_settings.scss';
 import {setCards} from "../../services/userServices";
 import { useLocation } from "react-router-dom";
 
 const FlashcardSettings = ({onSave, module_data}) => {
     const location = useLocation();
-    const data = location.state;
+    const data = location.state.data;
     const [termsOn, setTermsOn] = useState(false);
     const [studyMode, setStudyMode] = useState(false);
     const [flashcard, setFlashcard] = useState(5);
@@ -31,9 +31,20 @@ const FlashcardSettings = ({onSave, module_data}) => {
     }
     const handleSubmit = (event) => {
         event.preventDefault();
-        setCards(data.id, flashcard, studyMode);
         handleSave();
     }
+
+    useEffect(() => {
+        const fetchData = async () => {
+        try {
+            const cards_data = await setCards(data.id, flashcard, studyMode);
+            sessionStorage.setItem("flashcard", JSON.stringify(cards_data.data));
+        } catch (error) {
+            console.error('Received an error:', error);
+        } 
+        };
+        fetchData();
+    }, [data.id, flashcard, studyMode]);
 
     return (
         <div className="FlashcardSettings">

@@ -3,7 +3,8 @@ from flask import Blueprint, request, jsonify
 from flask_bcrypt import Bcrypt
 import random
 
-from user_models import create_user, get_user_by_email, login_user, get_user_by_token
+from user_models import create_user, get_user_by_email, \
+    login_user, get_user_by_token, set_card_status
 from aid_models import get_data
 from content_models import get_modules_data
 
@@ -107,6 +108,16 @@ def get_cards():
     return jsonify({ # return the response
         "message": "Got data successfully",
         "data": cards
+    }), 200
+
+
+@logged.route("/learning/setstatus", methods=["POST"])
+def set_status():
+    """Function to set the status of a card"""
+    data = request.json
+    set_card_status(data)
+    return jsonify({ # return the response
+        "message": "Set data successfully",
     }), 200
 
 @content.route("/modules", methods=["GET"])
