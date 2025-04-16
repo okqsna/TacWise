@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
 import '../flashcard/flashcard.scss';
 
-import {learnedCard} from "../../services/userServices.js";
+import { learnedCard } from "../../services/userServices.js";
 
 const Flashcard = ({ settings }) => {
     const flashcardsData = JSON.parse(sessionStorage.getItem("flashcard"))
@@ -10,18 +9,23 @@ const Flashcard = ({ settings }) => {
     const [showDefinition, setShowDefinition] = useState(false);
     const totalCards = flashcardsData.length;
     const currentCardShow = flashcardsData[currentCard];
-
-    const location = useLocation();
-    // const data = location.state.data;
-    // const module_id = data.id; //id should be setten to the route
+    console.log(currentCardShow.id);
 
     const toggleCard = () => {
         setShowDefinition(prev => !prev);
     };
 
     const handleStudied = () => {
-        flashcardsData[currentCard].studied = true;
-        setCurrentCard(currentCard + 1);
+        const m_id = sessionStorage.getItem("module");
+        learnedCard(currentCardShow.id, m_id)
+        flashcardsData.splice(currentCard, 1);
+        sessionStorage.setItem("flashcard", JSON.stringify(flashcardsData));
+        if (currentCard + 1 < totalCards - 1) {
+            nextCard();
+        }
+        else if (currentCard > 0) {  
+            prevCard();
+        }
     };
 
     const nextCard = () => {

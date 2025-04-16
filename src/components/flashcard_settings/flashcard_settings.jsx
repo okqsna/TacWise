@@ -39,6 +39,7 @@ const FlashcardSettings = ({onSave, module_data}) => {
         try {
             const cards_data = await setCards(data.id, flashcard, studyMode);
             sessionStorage.setItem("flashcard", JSON.stringify(cards_data.data));
+            sessionStorage.setItem("module", JSON.stringify(data.id));
         } catch (error) {
             console.error('Received an error:', error);
         } 
