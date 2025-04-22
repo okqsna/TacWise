@@ -17,7 +17,15 @@ const Flashcard = ({ settings }) => {
 
     const handleStudied = () => {
         const m_id = sessionStorage.getItem("module");
-        learnedCard(currentCardShow.id, m_id)
+        const fetchData = async () => {
+            try {
+                console.log(currentCardShow.id, m_id);
+                const data = await learnedCard(m_id, currentCardShow.id)
+            } catch (error) {
+                console.error('Received an error:', error);
+            } 
+            };
+        fetchData();
         flashcardsData.splice(currentCard, 1);
         sessionStorage.setItem("flashcard", JSON.stringify(flashcardsData));
         if (currentCard + 1 < totalCards - 1) {

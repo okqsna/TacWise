@@ -85,7 +85,7 @@ def set_card_status(data):
         }
     },
     array_filters=[
-        {"mod.id": data['module']},
+        {"mod.id": int(data['module'])},
         {"card.id": int(data['card'])}
     ]
 )
