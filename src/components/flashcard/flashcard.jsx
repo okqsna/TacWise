@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import '../flashcard/flashcard.scss';
 
 import { learnedCard } from "../../services/userServices.js";
@@ -7,9 +7,9 @@ const Flashcard = ({ settings }) => {
     const flashcardsData = JSON.parse(sessionStorage.getItem("flashcard"))
     const [currentCard, setCurrentCard] = useState(0);
     const [showDefinition, setShowDefinition] = useState(false);
+    const [allCardsFinished, setAllCardsFinished] = useState(false);
     const totalCards = flashcardsData.length;
     const currentCardShow = flashcardsData[currentCard];
-    console.log(currentCardShow.id);
 
     const toggleCard = () => {
         setShowDefinition(prev => !prev);
@@ -17,19 +17,16 @@ const Flashcard = ({ settings }) => {
 
     const handleStudied = () => {
         const m_id = sessionStorage.getItem("module");
-        const fetchData = async () => {
-            try {
-                console.log(currentCardShow.id, m_id);
-                const data = await learnedCard(m_id, currentCardShow.id)
-            } catch (error) {
-                console.error('Received an error:', error);
-            } 
-            };
-        fetchData();
+        learnedCard(currentCardShow.id, m_id)
         flashcardsData.splice(currentCard, 1);
         sessionStorage.setItem("flashcard", JSON.stringify(flashcardsData));
         if (currentCard + 1 < totalCards - 1) {
             nextCard();
+        }
+        if (flashcardsData.length === 0) {
+            setAllCardsFinished(true);
+            console.log('done');
+            return;
         }
         else if (currentCard > 0) {  
             prevCard();
@@ -51,33 +48,40 @@ const Flashcard = ({ settings }) => {
     };
 
     return (
-        <div classname = "Flashcard_main">
-            
-            <div className="Flashcard">
-                <div className={`Flashcard_card ${currentCardShow.studied ? 'studied' : ''}`} onClick={toggleCard}>
-                    <div className="Flashcard_card_content">
-                        {settings.termsOn ? (
-                            <div className="Flashcard_card_content_txt">
-                                {showDefinition ? currentCardShow.term : currentCardShow.definition}
-                            </div>
-                        ) : (
-                            <div className="Flashcard_card_content_txt">
-                                {showDefinition ? currentCardShow.definition : currentCardShow.term}
-                            </div>
-                        )}
+            <div className="Flashcard_main">
+                {allCardsFinished ? (
+                    <div className="Flashcard_finished">
+                        <h2 className="Flashcard_finished_h2">Ви завершили вивчення всіх карток 🎉</h2>
+                        <a href="/" className="Flashcard_finished_btn">Назад</a>
                     </div>
-                </div>
-
-                <div className="Flashcard_navigation">
-                    <button onClick={prevCard} disabled={currentCard === 0}>Назад</button>
-                    <button className = "Flashcard_navigation_studied" onClick={handleStudied} disabled={currentCardShow.studied}>
-                        Знаю
-                    </button>
-                    <button onClick={nextCard} disabled={currentCard === totalCards - 1}>Далі</button>
-                </div>
+                ) : (
+                    <div className="Flashcard">
+                        <div className={`Flashcard_card ${currentCardShow.studied ? 'studied' : ''}`} onClick={toggleCard}>
+                            <div className="Flashcard_card_content">
+                                {settings.termsOn ? (
+                                    <div className="Flashcard_card_content_txt">
+                                        {showDefinition ? currentCardShow.term : currentCardShow.definition}
+                                    </div>
+                                ) : (
+                                    <div className="Flashcard_card_content_txt">
+                                        {showDefinition ? currentCardShow.definition : currentCardShow.term}
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+        
+                        <div className="Flashcard_navigation">
+                            <button onClick={prevCard} disabled={currentCard === 0}>Назад</button>
+                            <button className="Flashcard_navigation_studied" onClick={handleStudied} disabled={currentCardShow.studied}>
+                                Знаю
+                            </button>
+                            <button onClick={nextCard} disabled={currentCard === flashcardsData.length - 1}>Далі</button>
+                        </div>
+                    </div>
+                )}
             </div>
-        </div>
-    );
+        );
+
 };
 
 export default Flashcard;
