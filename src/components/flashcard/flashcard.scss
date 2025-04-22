@@ -16,6 +16,7 @@
             border: none;
             border-radius: 20px;
             text-decoration: none;
+            box-shadow: 0px 0px 50px 8px rgba(0, 0, 0, 0.25);
             @include flexBox(flex, column, center, center);
         }
     }
@@ -61,6 +62,73 @@
                 border-radius: 20px;
                 cursor: pointer;
                 @include fontSet($fontFamily_montserrat, 20px, normal, 600, $white);
+            }
+        }
+    }
+    @media (max-width: 900px) {
+        .Flashcard{
+            @include size(550px, 550px);
+            .Flashcard_card{
+                @include size(400px, 550px);
+            }
+            .Flashcard_navigation{
+                button{
+                    @include size(100px, 40px);
+                    @include fontSet($fontFamily_montserrat, 15px, normal, 600, $white);
+                }
+                .Flashcard_navigation_studied{
+                    @include size(100px, 40px);
+                    @include fontSet($fontFamily_montserrat, 15px, normal, 600, $white);
+
+                }
+            }
+        }
+    }
+    @media (max-width: 600px) {
+        .Flashcard_finished{
+            width: 300px;
+            .Flashcard_finished_h2{
+                text-align: center;
+            }
+        }
+        .Flashcard{
+            @include size(400px, 500px);
+            .Flashcard_card{
+                @include size(300px, 550px);
+            }
+            .Flashcard_navigation{
+                button{
+                    border: none;
+                    @include size(100px, 40px);
+                    @include fontSet($fontFamily_montserrat, 15px, normal, 600, $white);
+                }
+                .Flashcard_navigation_studied{
+                    background-color: transparent;
+                    @include size(100px, 40px);
+                    @include fontSet($fontFamily_montserrat, 17px, normal, 600, $green);
+
+                }
+            }
+        }
+    }
+    @media (max-width: 450px) {
+        .Flashcard{
+            @include size(310px, 450px);
+            .Flashcard_card{
+                @include size(250px, 400px);
+            }
+            .Flashcard_navigation{
+                button{
+                    border: none;
+                    @include size(100px, 40px);
+                    @include fontSet($fontFamily_montserrat, 15px, normal, 600, $white);
+                }
+                .Flashcard_navigation_studied{
+                    background-color: transparent;
+                    @include size(100px, 40px);
+                    @include fontSet($fontFamily_montserrat, 17px, normal, 600, $green);
+
+                }
             }
         }
     }
