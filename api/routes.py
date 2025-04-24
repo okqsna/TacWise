@@ -120,6 +120,36 @@ def set_status():
         "message": "Set data successfully",
     }), 200
 
+@logged.route('/learning/progress', methods = ["GET"])
+def module_progress():
+    """
+    Function calculates the progress for each module
+    """
+    token = request.args.get('token') # get the token from the request
+    user_data = get_user_by_token(token)
+    modules_data = user_data['flashcards']['modules_cards']
+    modules_progress = []
+
+    for module in modules_data:
+        all_cards = len(module['data'])
+        all_learnt = 0
+        for card in module['data']:
+            if card['learned'] == "true":
+                all_learnt += 1
+        progress_percentage = (all_learnt / all_cards) * 100
+        modules_progress.append({
+            "module_id": module["id"],
+            "module_name": module.get("name", f"Module {module['id']}"),
+            "progress_percent": progress_percentage
+        })
+
+    return jsonify({
+        "message": "Progress received successfully",
+        "data": modules_progress
+    }), 200
+
+
+
 @content.route("/modules", methods=["GET"])
 def get_modules():
     """Function to get the data of the modules"""
