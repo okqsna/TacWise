@@ -30,6 +30,9 @@
             border-radius: 10px;
             border: 1px solid $green;
             cursor: pointer;
+            &:focus{
+                outline: none;
+            }
         }
         .registerForm_form_link{
             @include fontSet($fontFamily_montserrat, 17px, normal, 600, $darkgreen);

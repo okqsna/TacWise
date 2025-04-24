@@ -28,6 +28,9 @@
             border-radius: 10px;
             border: 1px solid $green;
             cursor: pointer;
+            &:focus{
+                outline: none;
+            }
         }
         .loginContainer_link{
             margin-top: 10px;
