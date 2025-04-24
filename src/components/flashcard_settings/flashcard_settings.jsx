@@ -3,7 +3,7 @@ import './flashcard_settings.scss';
 import {setCards} from "../../services/userServices";
 import { useLocation } from "react-router-dom";
 
-const FlashcardSettings = ({onSave, module_data}) => {
+const FlashcardSettings = ({onSave, module_data, cardsAmount}) => {
     const location = useLocation();
     const data = location.state.data;
     const [termsOn, setTermsOn] = useState(false);
@@ -55,7 +55,7 @@ const FlashcardSettings = ({onSave, module_data}) => {
                     <div className="FlashcardSettings_row1_quantity">
                         <div className="FlashcardSettings_row1_quantity_img"></div>
                         Кількість карток
-                        <input className="FlashcardSettings_row1_quantity_input" type="number" min="1" defaultValue="5" onChange={handleFlashcardChange}/>
+                        <input className="FlashcardSettings_row1_quantity_input" type="number" min="1" defaultValue="5" max={cardsAmount.cards_amount} onChange={handleFlashcardChange}/>
                     </div>
                     <div className="FlashcardSettings_row1_terms">
                         <div className="FlashcardSettings_row1_terms_txt">

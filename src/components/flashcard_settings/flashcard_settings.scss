@@ -35,6 +35,9 @@
                     margin-left: 10px;        
                     @include fontSet($fontFamily_montserrat, 20px, normal, 700, $green);      
                     background-color: transparent;
+                    &:focus{
+                        outline: none;
+                    }
                 }
             }
             .FlashcardSettings_row1_terms{
