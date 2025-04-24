@@ -29,6 +29,7 @@ def create_user(fname, lname, email, about, password):
         "token": access_token,
         "flashcards": cards,
         "last_interaction": None,
+        "streak": 0,
     }
 
     required_fields = ["first name", "last name", "email", "about", "password", "token"]
@@ -94,6 +95,21 @@ def set_card_status(data):
 def set_last_interaction(token):
     """Function to set the last interaction of a user"""
     today = datetime.today()
+    user = get_user_by_token(token)
+    last_day = user["last_interaction"]
+    streak = user["streak"]
+    if last_day is None:
+        users_collection.update_one(
+        {"token": token},
+        {"$set": {"streak": 1}})
+    elif (today - last_day).days == 1:
+        users_collection.update_one(
+        {"token": token},
+        {"$set": {"streak": streak+1}})
+    elif (today - last_day).days > 1:
+        users_collection.update_one(
+        {"token": token},
+        {"$set": {"streak": 0}})
     users_collection.update_one(
     {"token": token},
     {"$set": {"last_interaction": today}})
@@ -104,4 +120,5 @@ def get_last_interaction(token):
     if not user:
         return None
     last_interaction = user["last_interaction"]
-    return last_interaction
+    streak = user["streak"]
+    return last_interaction, streak

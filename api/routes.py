@@ -191,18 +191,27 @@ def set_activity():
 def get_streak():
     """Function to get the last activity of the user"""
     token = request.args.get('token')
-    last_int = get_last_interaction(token)
-    last_day = last_int.date()
-    today = datetime.today().date()
-    if last_day == today:
-        result = "active"
-    elif (today - last_day).days == 1:
-        result = "pending"
+    last_int, streak = get_last_interaction(token)
+    if last_int is not None:
+        last_day = last_int.date()
+        today = datetime.today().date()
+
+        if last_day == today:
+            result = "active"
+        elif (today - last_day).days == 1:
+            result = "pending"
+        else:
+            result = "expired"
     else:
         result = "expired"
+    data = {
+        "status": result,
+        "streak": streak
+        }
+
     return jsonify({
         "message": "Last activity set successfully",
-        "data": result
+        "data": data
     }), 200
 
 @logged.route('/learning/flashcards', methods = ["GET"])

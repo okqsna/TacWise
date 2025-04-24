@@ -24,7 +24,9 @@ const Dashboard = () => {
     const [userData, setUserData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
-    const [streak, setStreak] = useState("expired");
+    const [streak, setStreak] = useState(0);
+    const [activityStatus, setActivityStatus] = useState("expired");
+console.log(streak);
 
 
 
@@ -73,9 +75,9 @@ const Dashboard = () => {
     useEffect(() => {
         const checkStreak = async () => {
           const response = await getLastLearned();
-            const status = response.data;
-            console.log(status);
-          setStreak(status);
+            const data = response.data;
+            setStreak(data.streak);
+            setActivityStatus(data.status);
         };
         checkStreak();
       }, []);
