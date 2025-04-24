@@ -153,7 +153,7 @@ const getModulesProgress = async () => {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error("Error fetching progress:", error);
+    console.error("Error:", error);
   }
 };
 
@@ -170,7 +170,7 @@ const getStudyProgress = async () => {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error("Error fetching progress:", error);
+    console.error("Error:", error);
   }
 };
 
@@ -187,7 +187,7 @@ const getAvailableFlashcards = async () =>{
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error("Error fetching progress:", error);
+    console.error("Error:", error);
   }
 }
 
