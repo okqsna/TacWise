@@ -162,7 +162,6 @@ const Dashboard = () => {
                                         <div className="stats_widget_days_data_img"></div>
                                         
                                     </div>
-                                    <p>Ви крутіший ніж 0% користувачів</p>
                                 </div>
                                 <div className="stats_widget_modules">
                                     <p>Ви вивчили</p>
