@@ -1,10 +1,12 @@
 """Module for handling authentication routes"""
+import random
+from datetime import datetime
 from flask import Blueprint, request, jsonify
 from flask_bcrypt import Bcrypt
-import random
 
 from user_models import create_user, get_user_by_email, \
-    login_user, get_user_by_token, set_card_status
+    login_user, get_user_by_token, set_card_status, set_last_interaction, \
+    get_last_interaction
 from aid_models import get_data
 from content_models import get_modules_data
 
@@ -136,7 +138,7 @@ def module_progress():
         for card in module['data']:
             if card['learned'] == "true":
                 all_learnt += 1
-        progress_percentage = round((all_learnt / all_cards) * 100, 2)
+        progress_percentage = round((all_learnt / all_cards) * 100)
         modules_progress.append({
             "module_id": module["id"],
             "module_name": module.get("name", f"Module {module['id']}"),
@@ -174,6 +176,42 @@ def modules_studied():
     return jsonify({
         "message": "Study progress received successfully",
         "data": module_studied
+    }), 200
+
+@logged.route('/learning/lastactivity', methods = ["POST"])
+def set_activity():
+    """Function to set the last activity of the user"""
+    token = request.json
+    set_last_interaction(token)
+    return jsonify({
+        "message": "Last activity set successfully"
+    }), 200
+
+@logged.route('/learning/lastactivity', methods = ["GET"])
+def get_streak():
+    """Function to get the last activity of the user"""
+    token = request.args.get('token')
+    last_int, streak = get_last_interaction(token)
+    if last_int is not None:
+        last_day = last_int.date()
+        today = datetime.today().date()
+
+        if last_day == today:
+            result = "active"
+        elif (today - last_day).days == 1:
+            result = "pending"
+        else:
+            result = "expired"
+    else:
+        result = "expired"
+    data = {
+        "status": result,
+        "streak": streak
+        }
+
+    return jsonify({
+        "message": "Last activity set successfully",
+        "data": data
     }), 200
 
 @logged.route('/learning/flashcards', methods = ["GET"])

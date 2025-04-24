@@ -1,7 +1,7 @@
 import React, { use, useState } from "react";
 import '../flashcard/flashcard.scss';
 
-import { learnedCard } from "../../services/userServices.js";
+import { learnedCard, setLastLearned } from "../../services/userServices.js";
 
 const Flashcard = ({ settings }) => {
     const flashcardsData = JSON.parse(sessionStorage.getItem("flashcard"))
@@ -17,7 +17,8 @@ const Flashcard = ({ settings }) => {
 
     const handleStudied = () => {
         const m_id = sessionStorage.getItem("module");
-        learnedCard(m_id, currentCardShow.id)
+        learnedCard(m_id, currentCardShow.id);
+        setLastLearned();
         flashcardsData.splice(currentCard, 1);
         sessionStorage.setItem("flashcard", JSON.stringify(flashcardsData));
         if (currentCard + 1 < totalCards - 1) {

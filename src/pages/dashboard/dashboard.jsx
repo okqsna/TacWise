@@ -7,6 +7,7 @@ import { getModulesContent } from '../../services/moduleServices.js';
 import { getModulesProgress }  from '../../services/userServices';
 import { getStudyProgress } from '../../services/userServices.js';
 import { getAvailableFlashcards } from '../../services/userServices.js';
+import { getLastLearned } from '../../services/userServices.js';
 import './dashboard.scss';
 
 const Dashboard = () => {
@@ -23,7 +24,8 @@ const Dashboard = () => {
     const [userData, setUserData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
-
+    const [streak, setStreak] = useState(0);
+    const [activityStatus, setActivityStatus] = useState("expired");
 
     useEffect(() => {
     const fetchFlashcards = async () => {
@@ -67,6 +69,16 @@ const Dashboard = () => {
         checkStudyProgress();
       }, []);
 
+    useEffect(() => {
+        const checkStreak = async () => {
+          const response = await getLastLearned();
+            const data = response.data;
+            setStreak(data.streak);
+            setActivityStatus(data.status);
+        };
+        checkStreak();
+      }, []);
+    
     useEffect(() => {
         const fetchData = async () => {
         try {
@@ -174,8 +186,9 @@ const Dashboard = () => {
                                     <p>Ви навчаєтесь вже</p>
                                     <div className="stats_widget_days_data">
                                         <div className="stats_widget_days_data_img"></div>
-                                        
+                                        {streak} день
                                     </div>
+                                    <p>підряд. Продовжуйте!</p>
                                 </div>
                                 <div className="stats_widget_modules">
                                     <p>Ви вивчили</p>
