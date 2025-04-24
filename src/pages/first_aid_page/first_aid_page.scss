@@ -3,6 +3,7 @@
 
 .FirstAidPage{
     @include size(100%, auto);
+    min-height: 600px;
     background-color: $lightyellow;
     @include flexBox($displayFlex, column, flex-start, center);
     scroll-behavior: smooth;
@@ -122,6 +123,11 @@
         }
     }
     @media (max-width: 720px){
+        .FirstAidPage_error_message{
+            .FirstAidPage_error_message_txt{
+                width: 300px;
+            }
+        }
         .FirstAidPage_cap{
             font-size: 25px;
         }
