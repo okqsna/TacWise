@@ -105,7 +105,7 @@ def get_cards():
         # print(cards)
         cards = [c for c in cards if c["learned"] == "false"]
 
-    cards = random.choices(cards, k=int(n)) # get n random cards
+    cards = random.sample(cards, k=int(n)) # get n random cards
 
     return jsonify({ # return the response
         "message": "Got data successfully",

@@ -52,22 +52,8 @@ const Dashboard = () => {
         };
         checkProgress();
       }, []);
-      
+    
 
-    useEffect(() => {
-        const checkStudyProgress = async () => {
-          const response = await getStudyProgress();
-          const data = response.data;
-          const modulesCounter = data.filter(p => p.progress_percent !== false).length;
-          const allModules = data.length;
-          const learnedPercentage = allModules > 0 ? Math.round((modulesCounter / allModules) * 100) : 0;
-
-          setModulesCount(modulesCounter);
-          setAllModules(allModules)
-          setStudyProgress(learnedPercentage);
-        };
-        checkStudyProgress();
-      }, []);
 
     useEffect(() => {
         const checkStreak = async () => {
@@ -110,6 +96,23 @@ const Dashboard = () => {
         };
         fetchModulesData();
     }, []);
+
+    useEffect(() => {
+        const checkStudyProgress = async () => {
+            if (modulesData?.data) {
+                const response = await getStudyProgress();
+                const data = response.data;
+                const modulesCounter = data.filter(p => p.progress_percent !== false).length;
+                const allModules = modulesData.data.length;
+                const learnedPercentage = allModules > 0 ? Math.round((modulesCounter / allModules) * 100) : 0;
+    
+                setModulesCount(modulesCounter);
+                setAllModules(allModules);
+                setStudyProgress(learnedPercentage);
+            }
+        };
+        checkStudyProgress();
+    }, [modulesData]);
     
 
     return(
@@ -143,11 +146,6 @@ const Dashboard = () => {
                                     <div className="Dashboard_content_left_top_modules_logo_img"></div>
                                     <p className="Dashboard_content_left_top_modules_logo_txt">Ваші модулі</p>
                                 </div>
-                                {/* <div className="Dashboard_content_left_top_modules_navigation">
-                                    <div className="Dashboard_content_left_top_modules_btn_1"> Наявні </div>
-                                    <div className="Dashboard_content_left_top_modules_btn_2"> Вивчені </div>
-                                    <div className="Dashboard_content_left_top_modules_btn_3"> Усі </div>
-                                </div> */}
                             </div>
                         </div>
                     
@@ -194,7 +192,7 @@ const Dashboard = () => {
                                     <p>Ви вивчили</p>
                                     <div className="stats_widget_modules_data">
                                         <div className="stats_widget_modules_data_img"></div>
-                                        {modulesCount}/{allModules}
+                                        {modulesCount}/{modulesData.data.length}
                                     </div>
                                     <p>модулів. Це {studyProgress}% від усіх</p>
                                 </div>
