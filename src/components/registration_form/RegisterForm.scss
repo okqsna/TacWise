@@ -15,6 +15,11 @@
         @include flexBox(flex, column, center, center);
         @include size(100%, auto);
         margin-bottom: 30px;
+        .registerForm_form_error{
+            min-height: 30px;
+            @include fontSet($fontFamily_source, 17px, normal, 700, $green);
+            margin-top: 20px;
+        }
         .registerForm_form_input{
             @include size(500px, 40px);
             @include fontSet($fontFamily_source, 17px, normal, 400, $darkgreen);

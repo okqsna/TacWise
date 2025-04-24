@@ -10,6 +10,7 @@ const RegisterForm = () => {
         about: '',
         password: ''
   });
+  const [inputErrors, setInputErrors] = useState(null);
   
   const handleChange = (e) => { // function to handle input changes
     e.preventDefault();
@@ -19,10 +20,20 @@ const RegisterForm = () => {
         });
   };
 
+ 
   const handleSubmit = (e) => {
-        e.preventDefault();
-        registerUser(formData)
-    }
+      e.preventDefault();
+      const allInputsFilled = Object.values(formData).every(val => val.trim() !== '');
+    
+      if (!allInputsFilled) {
+        setInputErrors('Будь ласка, заповніть усі поля');
+        return;
+      }
+
+      setInputErrors(null);
+      registerUser(formData);
+    };
+    
 
   return (
     <div className="registerForm">
@@ -75,6 +86,7 @@ const RegisterForm = () => {
         />
         <p className='registerForm_form_link'>Або <a href="/login" className='registerForm_form_link_a'>увійдіть</a>, якщо вже маєте акаунт.</p>
         <button type="submit" className='registerForm_form_btn'>Доєднатись</button>
+        <p className='registerForm_form_error'>{inputErrors}</p>
       </form>
     </div>
   );
