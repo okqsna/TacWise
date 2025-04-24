@@ -7,10 +7,11 @@ import { Link } from 'react-router-dom';
 
 const ModulePage = () =>{
     const location = useLocation();
-    const { data } = location.state || {};
+    const { data, cards } = location.state || {};
     const [isVisibleMaterials, setIsVisibleMaterials] = useState(false);
     const [isVisibleLectures, setIsVisibleLectures] = useState(false);
     const [isVisibleCards, setIsVisibleCards] = useState(false);
+
 
     const handleToggleMaterials = () => {
         setIsVisibleMaterials(!isVisibleMaterials);
@@ -89,7 +90,7 @@ const ModulePage = () =>{
                         isVisibleCards && (
                             <div className="ModulePage_main_content_cards">
                                 <h2>Флеш-картки для активного вивчення</h2>
-                                <Link to={`/flashcards/${data.id}`} state={{data}}>Переходь за посиланням та навчайся!</Link>
+                                <Link to={`/flashcards/${data.id}`} state={{data: data, cards: cards}}>Переходь за посиланням та навчайся!</Link>
                             </div>
                         )
                     }

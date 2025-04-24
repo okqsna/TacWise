@@ -8,7 +8,7 @@ import { useLocation } from "react-router-dom";
 
 const FlashcardPage = () => {
   const location = useLocation();
-  const { data } = location.state || {};
+  const { data, cards } = location.state || {};
 
   const [cardSettings, setCardSettings] = useState({
       termsOn: false,
@@ -26,7 +26,7 @@ const FlashcardPage = () => {
             <Header/>
         </div>
         <div className="FlashcardPage_main">
-            <FlashcardSettings onSave={handleCardSettingsSave} module_data = {data}/>
+            <FlashcardSettings onSave={handleCardSettingsSave} module_data = {data} cardsAmount = {cards}/>
             <Link to="/studyflashcards" state={cardSettings} className="FlashcardPage_main_btn">Почати навчання</Link>
         </div>
         <Footer/>
