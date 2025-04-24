@@ -138,7 +138,7 @@ def module_progress():
         for card in module['data']:
             if card['learned'] == "true":
                 all_learnt += 1
-        progress_percentage = round((all_learnt / all_cards) * 100, 2)
+        progress_percentage = round((all_learnt / all_cards) * 100)
         modules_progress.append({
             "module_id": module["id"],
             "module_name": module.get("name", f"Module {module['id']}"),
