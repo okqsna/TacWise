@@ -148,6 +148,33 @@ def module_progress():
         "data": modules_progress
     }), 200
 
+@logged.route('/learning/studied', methods = ["GET"])
+def modules_studied():
+    """
+    Function calculates all studied modules
+    """
+    token = request.args.get('token') # get the token from the request
+    user_data = get_user_by_token(token)
+    modules_data = user_data['flashcards']['modules_cards']
+    module_studied = []
+
+    for module in modules_data:
+        all_cards = len(module['data'])
+        all_learnt = 0
+        for card in module['data']:
+            if card['learned'] == "true":
+                all_learnt += 1
+        module_status = True if all_cards == all_learnt else False
+        module_studied.append({
+            "module_id": module["id"],
+            "module_name": module.get("name", f"Module {module['id']}"),
+            "progress_percent": module_status
+        })
+
+    return jsonify({
+        "message": "Study progress received successfully",
+        "data": module_studied
+    }), 200
 
 
 @content.route("/modules", methods=["GET"])
