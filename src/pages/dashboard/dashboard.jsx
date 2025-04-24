@@ -26,9 +26,6 @@ const Dashboard = () => {
     const [error, setError] = useState(false);
     const [streak, setStreak] = useState(0);
     const [activityStatus, setActivityStatus] = useState("expired");
-console.log(streak);
-
-
 
     useEffect(() => {
     const fetchFlashcards = async () => {
@@ -189,8 +186,9 @@ console.log(streak);
                                     <p>Ви навчаєтесь вже</p>
                                     <div className="stats_widget_days_data">
                                         <div className="stats_widget_days_data_img"></div>
-                                        
+                                        {streak} день
                                     </div>
+                                    <p>підряд. Продовжуйте!</p>
                                 </div>
                                 <div className="stats_widget_modules">
                                     <p>Ви вивчили</p>
