@@ -42,6 +42,11 @@
                 transition: 0.2s;
             }
         }
+        .loginContainer_error{
+            min-height: 20px;
+            margin-top: 30px;
+            @include fontSet($fontFamily_source, 17px, normal, 700, $darkgreen);
+        }
     }
     .loginContainer_btn{
         @include size(200px, 60px);
