@@ -4,6 +4,7 @@ import Footer from '../../components/footer/footer.jsx';
 import ModuleCard from '../../components/module_card/module_card.jsx';
 import { getUserByToken } from '../../services/userServices.js';
 import { getModulesContent } from '../../services/moduleServices.js';
+import {getModulesProgress} from '../../services/userServices';
 import './dashboard.scss';
 
 const Dashboard = () => {
@@ -12,6 +13,15 @@ const Dashboard = () => {
     const [modulesData, setModulesData] = useState([]);
     const [loadingModules, setLoadingModules] = useState(true);
     const [errorModules, setErrorModules] = useState(false);
+    const [progress, setProgress] = useState(0);
+
+    useEffect(() => {
+        const checkProgress = async () => {
+          const response = await getModulesProgress();
+          setProgress(response.data)
+        };
+        checkProgress();
+      }, []);
 
     const [userData, setUserData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -92,10 +102,17 @@ const Dashboard = () => {
                         {!loadingModules && !errorModules &&(
                              <div className="Dashboard_content_left_main">
                                 {
-                                    modulesData.data.map((module, key) => (
-                                        <ModuleCard data = {module} key={key}/>
-                                    ))
-                                }
+                                modulesData.data.map((module, key) => {
+                                const moduleProgress = progress.find(p => p.module_name === module.name); 
+                                return (
+                                    <ModuleCard 
+                                    data={module} 
+                                    progress={moduleProgress} 
+                                    key={key} 
+                                    />
+                                );
+                                })
+                            }
                          </div>
                         )}                        
                     </div>

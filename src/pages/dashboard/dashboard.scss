@@ -26,6 +26,8 @@
         background-color: $lightyellow;
         @include flexBox(flex, column, center, center);
         .Dashboard_error_message_txt{
+            @include size(500px, auto);
+            text-align: center;
             @include fontSet($fontFamily_montserrat, 30px, normal, 700, $green);
         }
     }

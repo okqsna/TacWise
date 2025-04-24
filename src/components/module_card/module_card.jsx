@@ -1,8 +1,9 @@
 import './module_card.scss';
 import { Link } from 'react-router-dom';
 
-// prototype of card used in Dashboard and Module page
-const ModuleCard = ({data}) =>{
+
+// prototype of card used in Dashboard
+const ModuleCard = ({data, progress}) =>{
     return(
         <Link to={`/module/${data.name}`} className="ModuleCard" state={{data}}>
             <div className="ModuleCard_txt">
@@ -23,7 +24,8 @@ const ModuleCard = ({data}) =>{
                     Прогрес
                 </p>
                 <div className="ModuleCard_progress_visuals">
-                    <p className="ModuleCard_progress_visuals_p">0%</p>
+                    <p className="ModuleCard_progress_visuals_p">
+                        {progress.progress_percent}%</p>
                 </div>
             </div>
         </Link>
