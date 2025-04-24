@@ -6,6 +6,7 @@ import { getUserByToken } from '../../services/userServices.js';
 import { getModulesContent } from '../../services/moduleServices.js';
 import { getModulesProgress }  from '../../services/userServices';
 import { getStudyProgress } from '../../services/userServices.js';
+import { getAvailableFlashcards } from '../../services/userServices.js';
 import './dashboard.scss';
 
 const Dashboard = () => {
@@ -18,10 +19,24 @@ const Dashboard = () => {
     const [modulesCount, setModulesCount] = useState(0);
     const [studyProgress, setStudyProgress] = useState(0);
     const [allModules, setAllModules] = useState(0);
+    const [flashcardsAmount, setFlashcardsAmount] = useState([]);
+    const [userData, setUserData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
 
 
+    useEffect(() => {
+    const fetchFlashcards = async () => {
+        try {
+        const response = await getAvailableFlashcards();
+        setFlashcardsAmount(response.data);
+        } catch (error) {
+        console.error("Error:", error);
+        }
+    };
+    fetchFlashcards();
+    }, []);
    
-
     useEffect(() => {
         const checkProgress = async () => {
           try {
@@ -51,10 +66,6 @@ const Dashboard = () => {
         };
         checkStudyProgress();
       }, []);
-
-    const [userData, setUserData] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -132,11 +143,14 @@ const Dashboard = () => {
                              <div className="Dashboard_content_left_main">
                                 {!isLoadingProgress && modulesData.data.map((module, key) => {
                                     const moduleProgress = progress.find(p => p.module_name === module.name);
+                                    const amountCards = flashcardsAmount.find(f => f.module_name === module.name);
+
                                     return (
                                         <ModuleCard 
                                         data={module} 
                                         progress={moduleProgress} 
                                         key={key} 
+                                        cardAmount = {amountCards}
                                         />
                                     );
                                     })
