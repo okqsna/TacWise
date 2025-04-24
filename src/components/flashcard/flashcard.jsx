@@ -17,7 +17,7 @@ const Flashcard = ({ settings }) => {
 
     const handleStudied = () => {
         const m_id = sessionStorage.getItem("module");
-        learnedCard(currentCardShow.id, m_id)
+        learnedCard(m_id, currentCardShow.id)
         flashcardsData.splice(currentCard, 1);
         sessionStorage.setItem("flashcard", JSON.stringify(flashcardsData));
         if (currentCard + 1 < totalCards - 1) {
