@@ -16,6 +16,7 @@
         .header_left_logo_txt {
             @include fontSet($fontFamily_source, 56px, normal, 700, $green);
             cursor: pointer;
+            text-decoration: none;
         }
     }
 

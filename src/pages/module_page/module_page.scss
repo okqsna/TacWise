@@ -4,6 +4,7 @@
 .ModulePage{
     @include flexBox(flex, column, space-around,flex-start);
     @include size(100%, auto);
+    background-color: $lightyellow;
     .ModulePage_header{
         @include size(100%, auto);
         @include flexBox(flex, row, center, center);

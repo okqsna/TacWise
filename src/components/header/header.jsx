@@ -7,7 +7,7 @@ class Header extends React.Component{
             <header className="Header">
                 <div className = "header_left">
                     <div className = "header_left_logo">
-                        <p className = "header_left_logo_txt">TacWise</p>
+                        <a className = "header_left_logo_txt" href="/">TacWise</a>
                     </div>
                 </div>
                 <div className="header_right">
