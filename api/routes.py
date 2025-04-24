@@ -1,10 +1,12 @@
 """Module for handling authentication routes"""
+import random
+from datetime import datetime
 from flask import Blueprint, request, jsonify
 from flask_bcrypt import Bcrypt
-import random
 
 from user_models import create_user, get_user_by_email, \
-    login_user, get_user_by_token, set_card_status
+    login_user, get_user_by_token, set_card_status, set_last_interaction, \
+    get_last_interaction
 from aid_models import get_data
 from content_models import get_modules_data
 
@@ -174,6 +176,33 @@ def modules_studied():
     return jsonify({
         "message": "Study progress received successfully",
         "data": module_studied
+    }), 200
+
+@logged.route('/learning/lastactivity', methods = ["POST"])
+def set_activity():
+    """Function to set the last activity of the user"""
+    token = request.json
+    set_last_interaction(token)
+    return jsonify({
+        "message": "Last activity set successfully"
+    }), 200
+
+@logged.route('/learning/lastactivity', methods = ["GET"])
+def get_streak():
+    """Function to get the last activity of the user"""
+    token = request.args.get('token')
+    last_int = get_last_interaction(token)
+    last_day = last_int.date()
+    today = datetime.today().date()
+    if last_day == today:
+        result = "active"
+    elif (today - last_day).days == 1:
+        result = "pending"
+    else:
+        result = "expired"
+    return jsonify({
+        "message": "Last activity set successfully",
+        "data": result
     }), 200
 
 @logged.route('/learning/flashcards', methods = ["GET"])

@@ -1,5 +1,5 @@
 """module for the user model"""
-from datetime import timedelta
+from datetime import timedelta, datetime
 from flask_bcrypt import Bcrypt
 from flask_jwt_extended import create_access_token
 
@@ -28,6 +28,7 @@ def create_user(fname, lname, email, about, password):
         "password": hashed_pw,
         "token": access_token,
         "flashcards": cards,
+        "last_interaction": None,
     }
 
     required_fields = ["first name", "last name", "email", "about", "password", "token"]
@@ -89,3 +90,18 @@ def set_card_status(data):
         {"card.id": int(data['card'])}
     ]
 )
+
+def set_last_interaction(token):
+    """Function to set the last interaction of a user"""
+    today = datetime.today()
+    users_collection.update_one(
+    {"token": token},
+    {"$set": {"last_interaction": today}})
+
+def get_last_interaction(token):
+    """Function to get the last interaction of a user"""
+    user = get_user_by_token(token)
+    if not user:
+        return None
+    last_interaction = user["last_interaction"]
+    return last_interaction
