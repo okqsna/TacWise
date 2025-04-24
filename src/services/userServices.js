@@ -156,4 +156,21 @@ const getStudyProgress = async () => {
   }
 };
 
-export { registerUser, loginUser, getUserByToken, setCards, learnedCard, getModulesProgress, getStudyProgress};
+const getAvailableFlashcards = async () =>{
+  const token = sessionStorage.getItem("token");
+  try {
+    const response = await fetch(
+      `http://localhost:3001/api/logged/learning/flashcards?token=${token}`,
+      {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching progress:", error);
+  }
+}
+
+export { registerUser, loginUser, getUserByToken, setCards, learnedCard, getModulesProgress, getStudyProgress, getAvailableFlashcards};

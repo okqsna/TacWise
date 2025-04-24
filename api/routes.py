@@ -136,7 +136,7 @@ def module_progress():
         for card in module['data']:
             if card['learned'] == "true":
                 all_learnt += 1
-        progress_percentage = (all_learnt / all_cards) * 100
+        progress_percentage = round((all_learnt / all_cards) * 100, 2)
         modules_progress.append({
             "module_id": module["id"],
             "module_name": module.get("name", f"Module {module['id']}"),
@@ -174,6 +174,29 @@ def modules_studied():
     return jsonify({
         "message": "Study progress received successfully",
         "data": module_studied
+    }), 200
+
+@logged.route('/learning/flashcards', methods = ["GET"])
+def available_flashcards():
+    """
+    Function finds an amount of available flashcards
+    """
+    token = request.args.get('token') # get the token from the request
+    user_data = get_user_by_token(token)
+    modules_data = user_data['flashcards']['modules_cards']
+    flashcards_available = []
+
+    for module in modules_data:
+        all_cards = len(module['data'])
+        flashcards_available.append({
+            "module_id": module["id"],
+            "module_name": module.get("name", f"Module {module['id']}"),
+            "cards_amount": all_cards
+        })
+
+    return jsonify({
+        "message": "Flashcards amount received successfully",
+        "data": flashcards_available
     }), 200
 
 
