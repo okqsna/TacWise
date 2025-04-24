@@ -4,23 +4,52 @@ import Footer from '../../components/footer/footer.jsx';
 import ModuleCard from '../../components/module_card/module_card.jsx';
 import { getUserByToken } from '../../services/userServices.js';
 import { getModulesContent } from '../../services/moduleServices.js';
-import {getModulesProgress} from '../../services/userServices';
+import { getModulesProgress }  from '../../services/userServices';
+import { getStudyProgress } from '../../services/userServices.js';
 import './dashboard.scss';
 
 const Dashboard = () => {
     const token = sessionStorage.getItem('token');
-
     const [modulesData, setModulesData] = useState([]);
     const [loadingModules, setLoadingModules] = useState(true);
+    const [isLoadingProgress, setIsLoadingProgress] = useState(true);
     const [errorModules, setErrorModules] = useState(false);
-    const [progress, setProgress] = useState(0);
+    const [progress, setProgress] = useState([]);
+    const [modulesCount, setModulesCount] = useState(0);
+    const [studyProgress, setStudyProgress] = useState(0);
+    const [allModules, setAllModules] = useState(0);
+
+
+   
 
     useEffect(() => {
         const checkProgress = async () => {
-          const response = await getModulesProgress();
-          setProgress(response.data)
+          try {
+            const response = await getModulesProgress();
+            setProgress(response.data);
+          } catch (error) {
+            console.error('Error:', error);
+          } finally {
+            setIsLoadingProgress(false);
+          }
         };
         checkProgress();
+      }, []);
+      
+
+    useEffect(() => {
+        const checkStudyProgress = async () => {
+          const response = await getStudyProgress();
+          const data = response.data;
+          const modulesCounter = data.filter(p => p.progress_percent !== false).length;
+          const allModules = data.length;
+          const learnedPercentage = allModules > 0 ? Math.round((modulesCounter / allModules) * 100) : 0;
+
+          setModulesCount(modulesCounter);
+          setAllModules(allModules)
+          setStudyProgress(learnedPercentage);
+        };
+        checkStudyProgress();
       }, []);
 
     const [userData, setUserData] = useState([]);
@@ -41,7 +70,7 @@ const Dashboard = () => {
         }
         };
         fetchData();
-    }, []);
+    }, [token]);
 
     useEffect(() => {  
         const fetchModulesData = async () =>{
@@ -101,18 +130,17 @@ const Dashboard = () => {
                     
                         {!loadingModules && !errorModules &&(
                              <div className="Dashboard_content_left_main">
-                                {
-                                modulesData.data.map((module, key) => {
-                                const moduleProgress = progress.find(p => p.module_name === module.name); 
-                                return (
-                                    <ModuleCard 
-                                    data={module} 
-                                    progress={moduleProgress} 
-                                    key={key} 
-                                    />
-                                );
-                                })
-                            }
+                                {!isLoadingProgress && modulesData.data.map((module, key) => {
+                                    const moduleProgress = progress.find(p => p.module_name === module.name);
+                                    return (
+                                        <ModuleCard 
+                                        data={module} 
+                                        progress={moduleProgress} 
+                                        key={key} 
+                                        />
+                                    );
+                                    })
+                                }
                          </div>
                         )}                        
                     </div>
@@ -134,15 +162,15 @@ const Dashboard = () => {
                                         <div className="stats_widget_days_data_img"></div>
                                         
                                     </div>
-                                    <p>Ви крутіший ніж 59% користувачів</p>
+                                    <p>Ви крутіший ніж 0% користувачів</p>
                                 </div>
                                 <div className="stats_widget_modules">
-                                    <p>Ви вивчили вже</p>
+                                    <p>Ви вивчили</p>
                                     <div className="stats_widget_modules_data">
                                         <div className="stats_widget_modules_data_img"></div>
-                                        
+                                        {modulesCount}/{allModules}
                                     </div>
-                                    <p>модулів. Це 8% від усіх</p>
+                                    <p>модулів. Це {studyProgress}% від усіх</p>
                                 </div>
                             </div>
                         </div>
