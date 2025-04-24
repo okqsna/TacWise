@@ -54,7 +54,7 @@
             border-radius: 100px;
             border: 7px dotted $darkgreen;
             .ModuleCard_progress_visuals_p{
-                @include fontSet($fontFamily_source, 30px, normal, 800, $green);
+                @include fontSet($fontFamily_source, 20px, normal, 800, $green);
             }
         }
     }
@@ -110,12 +110,12 @@
         .ModuleCard_progress{
             .ModuleCard_progress_cap{
                 margin-left: 5px;
-                @include fontSet($fontFamily_montserrat, 15px, normal, 600, $black);
+                @include fontSet($fontFamily_montserrat, 10px, normal, 600, $black);
             }
             .ModuleCard_progress_visuals{
-                @include size(80px, 80px);
+                @include size(100px, 100px);
                 .ModuleCard_progress_visuals_p{
-                    @include fontSet($fontFamily_source, 20px, normal, 800, $green);
+                    @include fontSet($fontFamily_source, 10px, normal, 800, $green);
                 }
             }
         }

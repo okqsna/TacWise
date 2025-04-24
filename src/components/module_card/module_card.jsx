@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 
 // prototype of card used in Dashboard
-const ModuleCard = ({data, progress}) =>{
+const ModuleCard = ({data, progress, cardAmount}) =>{
     return(
-        <Link to={`/module/${data.name}`} className="ModuleCard" state={{data}}>
+        <Link to={`/module/${data.name}`} className="ModuleCard" state={{data: data, cards: cardAmount}}>
             <div className="ModuleCard_txt">
                 <h3 className="ModuleCard_txt_h3">{data.name}</h3>
                 <p className="ModuleCard_txt_p">
