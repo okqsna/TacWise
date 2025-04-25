@@ -184,15 +184,15 @@ const Dashboard = () => {
                                     <p>Ви навчаєтесь вже</p>
                                     <div className="stats_widget_days_data">
                                         <div className="stats_widget_days_data_img"></div>
-                                        {streak} день
+                                        {streak} 
                                     </div>
-                                    <p>підряд. Продовжуйте!</p>
+                                    <p>день підряд. Продовжуйте!</p>
                                 </div>
                                 <div className="stats_widget_modules">
                                     <p>Ви вивчили</p>
                                     <div className="stats_widget_modules_data">
                                         <div className="stats_widget_modules_data_img"></div>
-                                        {modulesCount}/{modulesData.data.length}
+                                        {modulesCount}/{modulesData?.data?.length || 0}
                                     </div>
                                     <p>модулів. Це {studyProgress}% від усіх</p>
                                 </div>
