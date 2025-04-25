@@ -84,7 +84,7 @@ def get_cards():
     """function to get the learning cards data"""
     token = request.args.get('token') # get the token from the request
     module_id = request.args.get('id') # get the id from the request
-    n = request.args.get('n') # get the n from the request
+    n = int(request.args.get('n')) # get the n from the request
     all_mode = request.args.get('mode') # get the mode from the request
 
     user = get_user_by_token(token) # get the user by token
@@ -105,11 +105,15 @@ def get_cards():
         # print(cards)
         cards = [c for c in cards if c["learned"] == "false"]
 
-    cards = random.sample(cards, k=int(n)) # get n random cards
+    if n >= len(cards):
+        study_cards = cards
+    else:
+        study_cards = random.sample(cards, k=n) # get n random cards
+
 
     return jsonify({ # return the response
         "message": "Got data successfully",
-        "data": cards
+        "data": study_cards
     }), 200
 
 
