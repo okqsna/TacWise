@@ -8,12 +8,12 @@ function RegistrationForm() {
   return (
     <div className="RegistrationForm">
       <div className="RegistrationForm_Header">
-        <Header />
+        <Header aboutLink={false}/>
       </div>
       <main>
         <RegisterForm />
       </main>
-      <Footer />
+      <Footer/>
     </div>
   );
 }

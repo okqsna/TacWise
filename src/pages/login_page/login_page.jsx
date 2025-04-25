@@ -8,10 +8,10 @@ const LoginPage = () => {
   return (
     <div className="login-page">
       <div className="login-page-header">
-        <Header />
+        <Header aboutLink={false}/>
       </div>
       <LoginForm />
-      <Footer />
+      <Footer/>
     </div>
   );
 };

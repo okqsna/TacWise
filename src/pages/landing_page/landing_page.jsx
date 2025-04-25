@@ -3,12 +3,11 @@ import Header from "../../components/header/header.jsx";
 import Footer from "../../components/footer/footer.jsx";
 import './landing_page.scss';
 
-class LandingPage extends React.Component{
-    render(){
+const LandingPage = () =>{
         return(
             <div className="landingPage">
                 <div className="landingPage_header">
-                    <Header/>
+                    <Header aboutLink = {true}/>
                 </div>
                 <div className="landingPage_startpage">
                     <div className="landingPage_startpage_txt">
@@ -75,6 +74,5 @@ class LandingPage extends React.Component{
                 </div>
             </div>
         );
-    }
 }
 export default LandingPage;

@@ -3,6 +3,7 @@ import './header.scss'
 
 class Header extends React.Component{
     render(){
+        const { aboutLink } = this.props;
         return(
             <header className="Header">
                 <div className = "header_left">
@@ -12,7 +13,13 @@ class Header extends React.Component{
                 </div>
                 <div className="header_right">
                     <div className="header_right_links">
-                        <a href="#about">Про нас</a>
+                        {
+                            aboutLink?(
+                                <a href="#about">Про нас</a>
+                            ):(
+                                <a href="/">Про нас</a>
+                            )
+                        }
                         <a className="header_right_links_sign_up" href="/login">
                             <p className = "header_right_links_sign_up_txt">Увійти</p>
                         </a>
